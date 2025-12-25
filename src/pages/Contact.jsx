@@ -1,4 +1,4 @@
-    `import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../components/ui/Button';
 import SectionWrapper from '../components/ui/SectionWrapper';
