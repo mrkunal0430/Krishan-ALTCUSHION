@@ -33,13 +33,13 @@ const Hero = () => {
             <span className="text-primary-400 text-sm font-medium tracking-wide">Next-Gen Digital Solutions</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-7xl font-display font-bold leading-tight mb-8">
             Securing Growth through <br />
             <span className="text-gradient-primary">Digital Excellence</span> & <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Risk Intelligence.</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-lg sm:text-xl md:text-2xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed font-light">
             We architect resilient digital ecosystems that drive enterprise growth while mastering security and compliance.
           </p>
 

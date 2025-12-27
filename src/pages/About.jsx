@@ -24,7 +24,7 @@ const About = () => {
           animate={{ opacity: 1 }}
           className="text-center max-w-4xl mx-auto mb-20"
         >
-          <h1 className="text-4xl md:text-7xl font-display font-bold mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-7xl font-display font-bold mb-8">
             The Architects of <span className="text-gradient-primary">Resilience</span>
           </h1>
           <p className="text-xl text-slate-400">
