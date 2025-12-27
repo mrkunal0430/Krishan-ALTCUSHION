@@ -79,7 +79,7 @@ const Services = () => {
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-display font-bold mb-8"
+            className="text-4xl md:text-7xl font-display font-bold mb-8"
           >
             Capabilities & <span className="text-gradient-primary">Solutions</span>
           </motion.h1>
@@ -110,7 +110,7 @@ const Services = () => {
       <div className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary-500/5" />
         <div className="container mx-auto px-6 relative z-10">
-          <div className="glass-panel p-12 rounded-3xl text-center max-w-4xl mx-auto border border-primary-500/20">
+          <div className="glass-panel p-6 md:p-12 rounded-3xl text-center max-w-4xl mx-auto border border-primary-500/20">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to Identify Your Risks?</h2>
             <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
               Get a comprehensive comprehensive audit of your digital infrastructure. No commitment, just value.

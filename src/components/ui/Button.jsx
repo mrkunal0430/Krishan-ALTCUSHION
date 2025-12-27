@@ -2,6 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
+const MotionButton = motion.button;
+const MotionLink = motion(Link);
+const MotionA = motion.a;
+
 const Button = ({ 
   children, 
   variant = 'primary', // 'primary', 'secondary', 'glass', 'text'
@@ -10,7 +14,9 @@ const Button = ({
   onClick, 
   className = "",
   size = 'md', // 'sm', 'md', 'lg'
-  icon: Icon
+  icon: Icon,
+  disabled,
+  ...rest
 }) => {
   const baseClasses = "inline-flex items-center justify-center font-bold tracking-wide transition-all duration-300 rounded-full";
   
@@ -27,7 +33,8 @@ const Button = ({
     lg: "text-lg px-8 py-4"
   };
 
-  const classes = `${baseClasses} ${variants[variant]} ${variant !== 'text' ? sizes[size] : ''} ${className}`;
+  const disabledClasses = disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : "";
+  const classes = `${baseClasses} ${variants[variant]} ${variant !== 'text' ? sizes[size] : ''} ${disabledClasses} ${className}`;
 
   const content = (
     <>
@@ -36,15 +43,11 @@ const Button = ({
     </>
   );
 
-  const MotionComponent = motion.button;
-  const MotionLink = motion(Link);
-  const MotionA = motion.a;
-
-  const tapAnimation = { scale: 0.98 };
+  const tapAnimation = disabled ? {} : { scale: 0.98 };
 
   if (to) {
     return (
-      <MotionLink to={to} className={classes} whileTap={tapAnimation}>
+      <MotionLink to={to} className={classes} whileTap={tapAnimation} {...rest}>
         {content}
       </MotionLink>
     );
@@ -52,16 +55,16 @@ const Button = ({
 
   if (href) {
     return (
-      <MotionA href={href} className={classes} whileTap={tapAnimation} target="_blank" rel="noopener noreferrer">
+      <MotionA href={href} className={classes} whileTap={tapAnimation} target="_blank" rel="noopener noreferrer" {...rest}>
         {content}
       </MotionA>
     );
   }
 
   return (
-    <MotionComponent onClick={onClick} className={classes} whileTap={tapAnimation}>
+    <MotionButton onClick={onClick} className={classes} whileTap={tapAnimation} disabled={disabled} {...rest}>
       {content}
-    </MotionComponent>
+    </MotionButton>
   );
 };
 

@@ -26,11 +26,46 @@ const Contact = () => {
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
 
-  const handleSubmit = (e) => {
+  /* 
+   * WEB3FORMS INTEGRATION
+   * Please replace "YOUR_ACCESS_KEY_HERE" with your actual Web3Forms Access Key.
+   * You can get one at https://web3forms.com/
+   */
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle submission logic here
-    console.log(formData);
-    nextStep(); // Goes to success 'step 3'
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_ACCESS_KEY_HERE", // <--- REPLACE THIS
+          subject: "New Inquiry from ALTCUSHION Website",
+          from_name: "ALTCUSHION Contact Form",
+          ...formData
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        nextStep(); // Goes to success 'step 3'
+      } else {
+        alert("Something went wrong. Please try again.");
+        console.error("Web3Forms Error:", result);
+      }
+    } catch (error) {
+      console.error("Submission Error:", error);
+      alert("Error submitting form. Please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -43,7 +78,7 @@ const Contact = () => {
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-5xl font-display font-bold mb-8"
+              className="text-4xl md:text-5xl font-display font-bold mb-8"
             >
               Let's Engineer <br />
               <span className="text-gradient-primary">Your Growth.</span>
@@ -145,8 +180,8 @@ const Contact = () => {
                            <button type="button" onClick={prevStep} className="text-slate-400 hover:text-white font-medium px-4">
                              Back
                            </button>
-                           <Button type="submit" variant="primary" icon={Send}>
-                             Submit Inquiry
+                           <Button type="submit" variant="primary" icon={isSubmitting ? null : Send} disabled={isSubmitting}>
+                             {isSubmitting ? 'Sending...' : 'Submit Inquiry'}
                            </Button>
                         </div>
                       </motion.div>
