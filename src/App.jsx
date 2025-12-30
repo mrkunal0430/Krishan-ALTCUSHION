@@ -8,11 +8,13 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 
 import WelcomeModal from './components/ui/WelcomeModal';
+import FuturisticGridBackground from './components/ui/FuturisticGridBackground';
 
 const App = () => {
   return (
     <Router>
-      <div className="bg-navy-950 min-h-screen text-slate-200 font-sans selection:bg-primary-500/30 selection:text-white">
+      <div className="min-h-screen text-slate-200 font-sans selection:bg-primary-500/30 selection:text-white">
+        <FuturisticGridBackground />
         <WelcomeModal />
         <Navbar />
         <main>

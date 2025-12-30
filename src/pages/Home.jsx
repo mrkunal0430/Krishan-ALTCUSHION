@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import Hero from '../components/home/Hero';
+import HeroCommandCenter from '../components/home/HeroCommandCenter';
 import StatsRibbon from '../components/home/StatsRibbon';
-import ServicePreview from '../components/home/ServicePreview';
-import ProcessTimeline from '../components/home/ProcessTimeline';
-import TrustSection from '../components/home/TrustSection';
+import ServiceConsole from '../components/home/ServiceConsole';
+import ProcessEngine from '../components/home/ProcessEngine';
+import PartnerEcosystem from '../components/home/PartnerEcosystem';
 
 const Home = () => {
   useEffect(() => {
@@ -12,11 +12,11 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      <Hero />
+      <HeroCommandCenter />
       <StatsRibbon />
-      <ServicePreview />
-      <ProcessTimeline />
-      <TrustSection />
+      <ServiceConsole />
+      <ProcessEngine />
+      <PartnerEcosystem />
     </div>
   );
 };

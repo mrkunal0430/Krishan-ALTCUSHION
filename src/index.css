@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap");
 
 @theme {
   --color-navy-950: #020c1b;
@@ -8,23 +8,53 @@
   --color-navy-800: #112240;
   --color-slate-900: #0f172a;
   --color-slate-800: #1e293b;
-  
+
   --color-glass: rgba(255, 255, 255, 0.03);
   --color-glass-heavy: rgba(10, 25, 47, 0.7);
   --color-glass-border: rgba(255, 255, 255, 0.08);
-  
+
   --color-primary-500: #64ffda;
   --color-primary-400: #5ce6c4;
-  
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
-  
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+
   --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-scan: scan 10s linear infinite;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%) translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%) translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-reverse 60s linear infinite;
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
 }
 
 :root {
@@ -39,7 +69,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: -0.02em;
