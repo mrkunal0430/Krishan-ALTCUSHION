@@ -1,88 +1,137 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Monitor, Smartphone, Megaphone, Target, Palette, Video, ArrowRight, Zap, TrendingUp, Layout, Shield, Cpu, Code } from 'lucide-react';
+import { Monitor, Smartphone, Briefcase, Scale, GraduationCap, Bot, Target, ArrowRight, Zap, Shield, Cpu, } from 'lucide-react';
 import SectionWrapper from '../ui/SectionWrapper';
 
 const services = [
+  {
+    id: 'cyber',
+    title: 'Cyber Security',
+    subtitle: '24/7 Digital Threat Defense',
+    icon: Shield,
+    description:
+      'Enterprise-grade cybersecurity with continuous monitoring, threat detection, data encryption, and compliance-ready security architecture.',
+    metrics: [
+      { label: 'Threat Detection', value: '24/7' },
+      { label: 'Risk Reduction', value: '95%' },
+      { label: 'Data Protection', value: 'Encrypted' }
+    ],
+    visual: 'grid'
+  },
+  {
+    id: 'consulting',
+    title: 'Business Consulting',
+    subtitle: 'Strategic Growth Engineering',
+    icon: Briefcase,
+    description:
+      'We design growth strategies, optimize operations, and help leadership teams make data-driven business decisions.',
+    metrics: [
+      { label: 'Operational Efficiency', value: '+60%' },
+      { label: 'Growth Strategy', value: 'Optimized' },
+      { label: 'Decision Accuracy', value: 'High' }
+    ],
+    visual: 'path'
+  },
+  {
+    id: 'governance',
+    title: 'Governance & Compliance',
+    subtitle: 'Risk & Policy Control Systems',
+    icon: Scale,
+    description:
+      'Enterprise risk management, regulatory compliance, security frameworks, and audit-ready governance models.',
+    metrics: [
+      { label: 'Compliance', value: '100%' },
+      { label: 'Risk Coverage', value: 'Enterprise' },
+      { label: 'Audit Readiness', value: 'Always' }
+    ],
+    visual: 'shield'
+  },
+  {
+    id: 'skills',
+    title: 'Skill Development',
+    subtitle: 'Leadership & Workforce Growth',
+    icon: GraduationCap,
+    description:
+      'Corporate training programs, leadership workshops, and professional development to build future-ready teams.',
+    metrics: [
+      { label: 'Team Productivity', value: '+70%' },
+      { label: 'Skill Readiness', value: 'Advanced' },
+      { label: 'Leadership Impact', value: 'High' }
+    ],
+    visual: 'pulse'
+  },
   {
     id: 'web',
     title: 'Web Development',
     subtitle: 'High-Performance Digital Platforms',
     icon: Monitor,
-    description: 'We build enterprise-grade web applications that blend stunning aesthetics with robust backend architecture. Our systems are secure, scalable, and built for speed.',
+    description:
+      'Custom-built, responsive websites and enterprise portals with optimized UI/UX, SEO, and blazing-fast performance.',
     metrics: [
       { label: 'Performance', value: '100%' },
       { label: 'Uptime', value: '99.9%' },
-      { label: 'SEO Score', value: 'Rank #1' }
+      { label: 'SEO Score', value: 'Top Tier' }
     ],
     visual: 'binary'
   },
   {
     id: 'app',
     title: 'App Development',
-    subtitle: 'Native & Cross-Platform Ecosystems',
+    subtitle: 'Mobile & Software Ecosystems',
     icon: Smartphone,
-    description: 'Transforming ideas into powerful mobile experiences. We engineer seamless, intuitive apps for iOS and Android that dominate app stores and keep users engaged.',
+    description:
+      'High-performance mobile and desktop applications with seamless UX, secure backend, and continuous maintenance.',
     metrics: [
       { label: 'User Retention', value: '+45%' },
       { label: 'Crash Rate', value: '<0.1%' },
-      { label: 'Rating', value: '4.9/5' }
+      { label: 'App Rating', value: '4.9★' }
     ],
     visual: 'stack'
   },
   {
-    id: 'marketing',
-    title: 'Digital Marketing',
-    subtitle: 'Data-Driven Growth Engines',
-    icon: Megaphone,
-    description: 'We don’t just run campaigns; we engineer growth. Using advanced analytics and AI-driven targeting, we scale your brand visibility and convert traffic into loyal customers.',
+    id: 'it',
+    title: 'IT Consulting',
+    subtitle: 'Enterprise Technology Strategy',
+    icon: Target,
+    description:
+      'Digital transformation, cloud architecture, infrastructure planning, and IT optimization for scalable business growth.',
     metrics: [
-      { label: 'ROI', value: '5x' },
-      { label: 'Leads', value: '+200%' },
-      { label: 'CTR', value: 'High' }
+      { label: 'Tech Stack Accuracy', value: '5×' },
+      { label: 'Delivery Clarity', value: '+200%' },
+      { label: 'Go-To-Market', value: 'Faster' }
     ],
     visual: 'chart'
   },
   {
-    id: 'ads',
-    title: 'Google & Meta Ads',
-    subtitle: 'Precision Paid Acquisition',
-    icon: Target,
-    description: 'Maximize your ad spend with laser-focused targeting strategies. We optimize bid strategies and creative assets in real-time to lower CPA and skyrocket conversions.',
+    id: 'training',
+    title: 'Technology Training',
+    subtitle: 'Hands-On Technical Mastery',
+    icon: Cpu,
+    description:
+      'Advanced technology workshops, certifications, and real-world skill development in modern software and security.',
     metrics: [
-      { label: 'ROAS', value: '8.5x' },
-      { label: 'Reach', value: '1M+' },
-      { label: 'Conv. Rate', value: '+15%' }
+      { label: 'Skill Level', value: 'Advanced' },
+      { label: 'Certification', value: 'Industry' },
+      { label: 'Team Readiness', value: '100%' }
     ],
-    visual: 'target'
+    visual: 'nodes'
   },
   {
-    id: 'branding',
-    title: 'Branding & Design',
-    subtitle: 'Identity Systems that Resonate',
-    icon: Palette,
-    description: 'Crafting unforgettable brand identities. From logo systems to full UI/UX design languages, we ensure every touchpoint communicates authority and innovation.',
+    id: 'ai',
+    title: 'AI Agents & Automation',
+    subtitle: 'Intelligent Business Operations',
+    icon: Bot,
+    description:
+      'AI-powered automation for HR, sales, marketing, finance, and customer support including smart chatbots and workflow automation.',
     metrics: [
-      { label: 'Recognition', value: 'Top Tier' },
-      { label: 'Consistency', value: '100%' },
-      { label: 'Impact', value: 'High' }
+      { label: 'Process Automation', value: '80%' },
+      { label: 'Response Time', value: 'Instant' },
+      { label: 'Cost Reduction', value: '-40%' }
     ],
-    visual: 'palette'
-  },
-  {
-    id: 'video',
-    title: 'Video Production',
-    subtitle: 'Cinematic Storytelling',
-    icon: Video,
-    description: 'Engage your audience with high-fidelity motion graphics and video content. We produce commercial-grade visuals that explain, persuade, and inspire.',
-    metrics: [
-      { label: 'Engagement', value: '+85%' },
-      { label: 'Shares', value: 'Viral' },
-      { label: 'Quality', value: '4K' }
-    ],
-    visual: 'play'
+    visual: 'neural'
   }
 ];
+
 
 const ServiceConsole = () => {
   const [activeId, setActiveId] = useState('web');

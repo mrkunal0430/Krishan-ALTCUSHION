@@ -1,193 +1,207 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Code2, BarChart3, Layers, Globe, Zap, Cpu } from 'lucide-react';
-import SectionWrapper from '../ui/SectionWrapper';
+import { motion as Motion } from 'framer-motion';
+import { Shield, Globe, Activity, Lock, ArrowRight, Zap } from 'lucide-react';
+import Button from '../ui/Button';
 
 const HeroCommandCenter = () => {
   return (
-    <SectionWrapper background="transparent" className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-950 pt-20">
       
-      {/* 1. Background Grid & Ambience */}
+      {/* Ambient Background */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Animated Gradient Orbs */}
-        <div className="absolute top-[-20%] left-[-10%] w-[1000px] h-[1000px] bg-blue-900/10 rounded-full blur-[150px] mix-blend-screen animate-pulse-slow" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-orange-900/10 rounded-full blur-[150px] mix-blend-screen" />
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary-500/20 rounded-full blur-[120px] mix-blend-screen opacity-30 animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[150px] mix-blend-screen opacity-20" />
         
-        {/* Tech Grid Overlay */}
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
-        <div className="absolute inset-0" 
-             style={{ 
-               backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)', 
-               backgroundSize: '40px 40px' 
-             }} 
-        />
+        {/* Abstract Grid */}
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
       </div>
 
-      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
+      <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
         
-        {/* 2. LEFT: Command Text */}
-        <div className="max-w-2xl">
-           <motion.div 
-             initial={{ opacity: 0, x: -20 }}
-             animate={{ opacity: 1, x: 0 }}
-             transition={{ duration: 0.8, ease: "easeOut" }}
-           >
-             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8">
-               <span className="relative flex h-2 w-2">
-                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-               </span>
-               <span className="text-xs font-mono text-slate-300 tracking-wider">SYSTEM_OPERATIONAL</span>
-             </div>
+        {/* Left Column: Content */}
+        <div className="space-y-8">
+          
+          <Motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center space-x-2"
+          >
+            <span className="px-3 py-1 rounded-full border border-primary-500/30 bg-primary-500/10 text-primary-400 text-xs font-mono tracking-widest uppercase flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+              </span>
+              System Online
+            </span>
+          </Motion.div>
 
-             <h1 className="text-5xl lg:text-7xl font-display font-bold text-white leading-[1.1] mb-6">
-               Building the <br /> 
-               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-500 to-red-500">
-                 Digital Engine
-               </span> <br />
-               for Modern Brands.
-             </h1>
+          <Motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-5xl md:text-7xl font-display font-bold leading-tight text-white"
+          >
+            Total Digital <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-primary-200 to-white">
+              Defense & Growth
+            </span>
+          </Motion.h1>
 
-             <p className="text-lg text-slate-400 leading-relaxed mb-10 max-w-lg border-l-2 border-orange-500/30 pl-6">
-               Postperfect is the operating system for your growth. We engineer high-performance websites, scalable apps, and data-driven marketing ecosystems.
-             </p>
+          <Motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg text-slate-400 max-w-xl leading-relaxed font-light"
+          >
+            360 Kavach is your elite partner for securing digital infrastructure and accelerating enterprise growth. We blend advanced cybersecurity with cutting-edge software engineering.
+          </Motion.p>
 
-             <div className="flex flex-wrap items-center gap-6">
-               <button className="group relative px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(249,115,22,0.3)] hover:shadow-[0_0_40px_rgba(249,115,22,0.5)] flex items-center overflow-hidden">
-                 <span className="relative z-10">Launch Project</span>
-                 <ArrowRight className="ml-2 w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-                 {/* Shiny sweep effect */}
-                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
-               </button>
-               
-               <button className="px-8 py-4 bg-transparent border border-white/10 hover:border-white/30 text-white font-bold rounded-xl transition-all hover:bg-white/5 flex items-center">
-                 <Cpu className="mr-2 w-5 h-5 text-slate-400" />
-                 View Systems
-               </button>
-             </div>
-           </motion.div>
+          <Motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-wrap gap-4"
+          >
+            <Button to="/contact" variant="primary" size="lg" icon={ArrowRight}>
+              Initiate Protection
+            </Button>
+            <Button to="/services" variant="glass" size="lg">
+              View Solutions
+            </Button>
+          </Motion.div>
+
+          <Motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="pt-8 border-t border-white/5 grid grid-cols-3 gap-8"
+          >
+            <div>
+              <h4 className="text-3xl font-bold text-white mb-1">99.9%</h4>
+              <p className="text-xs text-slate-500 uppercase tracking-wider">Uptime Guaranteed</p>
+            </div>
+            <div>
+              <h4 className="text-3xl font-bold text-white mb-1">24/7</h4>
+              <p className="text-xs text-slate-500 uppercase tracking-wider">Threat Monitoring</p>
+            </div>
+            <div>
+              <h4 className="text-3xl font-bold text-white mb-1">50+</h4>
+              <p className="text-xs text-slate-500 uppercase tracking-wider">Enterprise Clients</p>
+            </div>
+          </Motion.div>
+        
         </div>
 
-        {/* 3. RIGHT: 3D Floating Interface */}
-        <div className="relative h-[600px] hidden lg:block perspective-1000">
-           {/* Center Visual: The "Core" */}
-           <motion.div 
-             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-blue-900/20 to-navy-900/20 rounded-full blur-3xl" 
-             animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-             transition={{ duration: 8, repeat: Infinity }}
-           />
-
-           {/* Panel 1: Code Interface (Top Left) */}
-           <FloatingPanel 
-             className="top-[10%] left-[5%] w-72"
-             delay={0}
-             xMove={-20} yMove={-30}
+        {/* Right Column: Command Center Visualization */}
+        <div className="relative hidden lg:block h-[600px]">
+           <Motion.div 
+             initial={{ opacity: 0, scale: 0.9 }}
+             animate={{ opacity: 1, scale: 1 }}
+             transition={{ duration: 0.7, delay: 0.2 }}
+             className="relative z-10 w-full h-full"
            >
-              <div className="flex items-center space-x-2 border-b border-white/10 pb-2 mb-3">
-                 <div className="flex space-x-1.5"><div className="w-2.5 h-2.5 rounded-full bg-red-500"/><div className="w-2.5 h-2.5 rounded-full bg-yellow-500"/><div className="w-2.5 h-2.5 rounded-full bg-green-500"/></div>
-                 <span className="text-[10px] text-slate-500 font-mono">deployment.config.js</span>
-              </div>
-              <div className="space-y-1.5 font-mono text-[10px] text-slate-400">
-                <div className="flex"><span className="text-purple-400 mr-2">const</span> engine = <span className="text-green-400 ml-1">new System();</span></div>
-                <div className="flex"><span className="text-purple-400 mr-2">await</span> engine.<span className="text-blue-400">optimize</span>({'{'}</div>
-                <div className="pl-4 text-orange-400">performance: 'turbo',</div>
-                <div className="pl-4 text-orange-400">security: 'max'</div>
-                <div>{'}'});</div>
-                <div className="text-emerald-400 mt-2">// Deployment successful</div>
-              </div>
-           </FloatingPanel>
+              {/* Main Glass Panel */}
+              <div className="absolute inset-x-0 top-12 bottom-12 bg-navy-900/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl flex flex-col overflow-hidden ring-1 ring-white/5">
+                
+                {/* Header Bar */}
+                <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/5">
+                  <div className="flex items-center space-x-4">
+                     <div className="flex space-x-1.5">
+                       <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50" />
+                       <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50" />
+                       <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50" />
+                     </div>
+                     <div className="h-4 w-px bg-white/10" />
+                     <span className="text-xs font-mono text-slate-400">CMD://ROOT/SYSTEM_MONITOR</span>
+                  </div>
+                  <div className="flex items-center space-x-3 text-xs font-mono text-primary-400">
+                    <Activity size={14} />
+                    <span>LIVE</span>
+                  </div>
+                </div>
 
-           {/* Panel 2: Marketing Analytics (Bottom Right) */}
-           <FloatingPanel 
-             className="bottom-[15%] right-[5%] w-80"
-             delay={1}
-             xMove={30} yMove={20}
-           >
-              <div className="flex justify-between items-center mb-4">
-                 <span className="text-xs font-bold text-slate-300 flex items-center"><BarChart3 size={14} className="mr-2 text-orange-500"/> Growth Metrics</span>
-                 <span className="text-[10px] bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded">+124%</span>
-              </div>
-              <div className="flex items-end space-x-2 h-24 mb-2">
-                 {[40, 65, 50, 85, 75, 100].map((h, i) => (
-                    <motion.div 
-                      key={i}
-                      className="flex-1 bg-gradient-to-t from-orange-500/20 to-orange-500 rounded-t-sm"
-                      initial={{ height: 0 }}
-                      animate={{ height: `${h}%` }}
-                      transition={{ duration: 1.5, delay: i * 0.1 }}
-                    />
-                 ))}
-              </div>
-              <div className="flex justify-between text-[10px] text-slate-500 font-mono">
-                 <span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span>
-              </div>
-           </FloatingPanel>
+                {/* Grid Content */}
+                <div className="grid grid-cols-2 gap-4 flex-1">
+                  
+                  {/* Status Card */}
+                  <div className="bg-black/20 rounded-lg p-4 border border-white/5 relative overflow-hidden group">
+                     <div className="absolute inset-0 bg-primary-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                     <div className="flex justify-between items-start mb-4">
+                        <Shield className="text-primary-400" size={20} />
+                        <span className="text-[10px] text-green-400 border border-green-500/30 px-1.5 py-0.5 rounded bg-green-500/10">SECURE</span>
+                     </div>
+                     <div className="text-2xl font-bold text-white mb-1">0 Threats</div>
+                     <div className="text-xs text-slate-500">Active Detected</div>
+                  </div>
 
-           {/* Panel 3: UI/UX Preview (Center Right) */}
-           <FloatingPanel 
-             className="top-[30%] right-[-5%] w-64 blur-[1px] opacity-80"
-             delay={2}
-             xMove={20} yMove={-10}
-           >
-              <div className="bg-white/5 p-3 rounded-lg mb-2">
-                 <div className="w-12 h-12 rounded-full bg-white/10 mb-2" />
-                 <div className="h-2 w-24 bg-white/10 rounded mb-1" />
-                 <div className="h-2 w-16 bg-white/5 rounded" />
-              </div>
-              <div className="flex gap-2">
-                 <div className="flex-1 h-20 bg-white/5 rounded-lg" />
-                 <div className="flex-1 h-20 bg-white/5 rounded-lg" />
-              </div>
-           </FloatingPanel>
+                  {/* Network Card */}
+                  <div className="bg-black/20 rounded-lg p-4 border border-white/5 relative overflow-hidden group">
+                     <div className="absolute inset-0 bg-primary-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                     <div className="flex justify-between items-start mb-4">
+                        <Globe className="text-blue-400" size={20} />
+                        <span className="text-[10px] text-blue-400 border border-blue-500/30 px-1.5 py-0.5 rounded bg-blue-500/10">GLOBAL</span>
+                     </div>
+                     <div className="text-2xl font-bold text-white mb-1">14 Regions</div>
+                     <div className="text-xs text-slate-500">Connected Nodes</div>
+                  </div>
+                  
+                  {/* Code/Logs View */}
+                  <div className="col-span-2 bg-black/40 rounded-lg p-4 border border-white/5 font-mono text-[10px] text-slate-400 overflow-hidden relative">
+                    <div className="absolute top-0 right-0 p-2">
+                       <Lock size={12} className="text-slate-600" />
+                    </div>
+                    <div className="space-y-1.5">
+                       <div className="flex space-x-2"><span className="text-slate-600">12:45:01</span> <span className="text-green-400">SUCCESS</span> <span>Connection established to Server A1</span></div>
+                       <div className="flex space-x-2"><span className="text-slate-600">12:45:03</span> <span className="text-blue-400">INFO</span> <span>Scanning protocols initiated...</span></div>
+                       <div className="flex space-x-2"><span className="text-slate-600">12:45:10</span> <span className="text-primary-400">UPDATE</span> <span>Firewall rules updated</span></div>
+                       <div className="flex space-x-2"><span className="text-slate-600">12:45:12</span> <span className="text-green-400">SUCCESS</span> <span>Encryption handshake complete</span></div>
+                       <div className="flex space-x-2"><span className="text-slate-600">12:45:15</span> <span className="text-blue-400">INFO</span> <span>Optimizing user traffic route</span></div>
+                       <div className="flex space-x-2"><span className="text-slate-600">12:45:18</span> <span className="text-green-400">SUCCESS</span> <span>System nominal</span></div>
+                    </div>
+                  </div>
 
-           {/* Panel 4: Server Status (Bottom Left) */}
-           <FloatingPanel 
-             className="bottom-[10%] left-[10%] w-56"
-             delay={0.5}
-             xMove={-10} yMove={20}
-           >
-              <div className="flex items-center justify-between mb-3">
-                 <span className="text-xs font-bold text-white flex items-center"><Zap size={14} className="mr-2 text-yellow-500"/> Live Vitals</span>
-              </div>
-              <div className="space-y-3">
-                 <div className="space-y-1">
-                    <div className="flex justify-between text-[10px] text-slate-400"><span>CPU Load</span><span>42%</span></div>
-                    <div className="h-1 bg-white/10 rounded-full overflow-hidden"><div className="w-[42%] h-full bg-blue-500" /></div>
-                 </div>
-                 <div className="space-y-1">
-                    <div className="flex justify-between text-[10px] text-slate-400"><span>Memory</span><span>78%</span></div>
-                    <div className="h-1 bg-white/10 rounded-full overflow-hidden"><div className="w-[78%] h-full bg-purple-500" /></div>
-                 </div>
-              </div>
-           </FloatingPanel>
+                </div>
 
+                {/* Bottom Bar */}
+                <div className="mt-4 pt-4 border-t border-white/5 flex justify-between items-center">
+                   <div className="flex -space-x-2">
+                      <div className="w-8 h-8 rounded-full bg-slate-700 border-2 border-navy-900" />
+                      <div className="w-8 h-8 rounded-full bg-slate-600 border-2 border-navy-900" />
+                      <div className="w-8 h-8 rounded-full bg-slate-500 border-2 border-navy-900 flex items-center justify-center text-[10px] font-bold text-white">+4</div>
+                   </div>
+                   <div className="text-right">
+                      <div className="text-xs text-slate-400">System Load</div>
+                      <div className="w-24 h-1 bg-white/10 rounded-full mt-1 overflow-hidden">
+                         <div className="w-1/3 h-full bg-primary-500" />
+                      </div>
+                   </div>
+                </div>
+
+              </div>
+
+              {/* Floating Elements */}
+              <Motion.div 
+                animate={{ y: [-10, 10, -10] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -right-4 top-24 bg-navy-800/80 backdrop-blur-md border border-white/10 p-3 rounded-lg shadow-xl"
+              >
+                 <Zap className="text-yellow-400" size={24} />
+              </Motion.div>
+              
+              <Motion.div 
+                animate={{ y: [10, -10, 10] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute -left-8 bottom-32 bg-navy-800/80 backdrop-blur-md border border-white/10 p-3 rounded-lg shadow-xl"
+              >
+                 <Shield className="text-primary-400" size={24} />
+              </Motion.div>
+
+           </Motion.div>
         </div>
+
       </div>
-    </SectionWrapper>
-  );
-};
-
-const FloatingPanel = ({ children, className, delay, xMove, yMove }) => {
-  return (
-    <motion.div
-      className={`absolute bg-navy-900/60 backdrop-blur-xl border border-white/10 p-5 rounded-2xl shadow-2xl ${className}`}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ 
-        opacity: 1, 
-        y: [0, yMove, 0],
-        x: [0, xMove, 0]
-      }}
-      transition={{ 
-        opacity: { duration: 1, delay },
-        y: { duration: 8, repeat: Infinity, ease: "easeInOut", delay },
-        x: { duration: 10, repeat: Infinity, ease: "easeInOut", delay }
-      }}
-      whileHover={{ scale: 1.05, zIndex: 50, borderColor: 'rgba(255,255,255,0.3)' }}
-    >
-       {/* Glass Shine */}
-       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none rounded-2xl" />
-       {children}
-    </motion.div>
+    </div>
   );
 };
 

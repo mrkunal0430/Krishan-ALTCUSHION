@@ -31,15 +31,19 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        location.pathname === '/' 
-          ? (scrolled ? 'glass-nav py-4' : 'bg-transparent py-6')
-          : 'bg-navy-950/90 backdrop-blur-md border-b border-white/5 py-4'
+        scrolled ? 'glass-nav py-4' : 'bg-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-display font-bold text-white tracking-tight">
-          ALT <span className="text-primary-500">CUSHION</span>
+        {/* Logo */}
+        <Link to="/" className="flex items-center space-x-3 group">
+          <div className="w-10 h-10 rounded-full overflow-hidden border border-white/20 group-hover:border-blue-500 transition-colors">
+             <img src="/Logo/IMG_20251230_190228.jpg" alt="360 Kavach Logo" className="w-full h-full object-cover" />
+          </div>
+          <span className="text-xl font-display font-bold text-white tracking-tight">
+            360 <span className="text-blue-500">KAVACH</span>
+          </span>
         </Link>
 
         {/* Desktop Navigation */}

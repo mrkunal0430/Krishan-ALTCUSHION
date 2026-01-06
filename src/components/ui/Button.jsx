@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const MotionButton = motion.button;
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 const MotionA = motion.a;
 
 const Button = ({ 
