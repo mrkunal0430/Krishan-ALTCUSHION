@@ -83,8 +83,8 @@ const ProcessEngine = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-display font-bold leading-tight"
           >
-            How We <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
+            <span className="block md:inline">How We</span>{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 block md:inline">
               Work
             </span>
           </Motion.h2>

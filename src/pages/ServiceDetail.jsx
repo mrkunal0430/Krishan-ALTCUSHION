@@ -27,42 +27,78 @@ const ServiceDetail = () => {
   }
 
   return (
-    <div className="pt-24 min-h-screen">
+    <div className=" min-h-screen">
       {/* Hero Header */}
       <section className="relative py-20 overflow-hidden">
         {/* Ambient Background */}
         <div
           className={`absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-b ${service.color} opacity-10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none`}
         />
+        <div
+          className={`absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-t ${service.color} opacity-5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2 pointer-events-none`}
+        />
 
         <div className="container mx-auto px-6 relative z-10">
           <Link
             to="/services"
-            className="inline-flex items-center text-slate-400 hover:text-white mb-8 transition-colors"
+            className="inline-flex items-center text-slate-400 hover:text-white mb-8 transition-colors group"
           >
-            <ArrowLeft size={16} className="mr-2" /> Back to Services
+            <ArrowLeft
+              size={16}
+              className="mr-2 group-hover:-translate-x-1 transition-transform"
+            />{" "}
+            Back to Services
           </Link>
 
-          <Motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div
-              className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} p-4 mb-6 shadow-lg text-white flex items-center justify-center`}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left Content */}
+            <Motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
             >
-              <service.icon className="text-white" size={32} />
-            </div>
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-4">
-              {service.title}
-            </h1>
-            <p className="text-xl text-primary-400 font-mono mb-6">
-              {service.subtitle}
-            </p>
-            <p className="text-lg text-slate-300 max-w-3xl leading-relaxed">
-              {service.fullDescription}
-            </p>
-          </Motion.div>
+              <div
+                className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} p-4 mb-6 shadow-lg text-white flex items-center justify-center`}
+              >
+                <service.icon className="text-white" size={32} />
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-tight">
+                {service.title}
+              </h1>
+              <p className="text-xl text-primary-400 font-mono mb-6">
+                {service.subtitle}
+              </p>
+              <p className="text-lg text-slate-300 leading-relaxed mb-8">
+                {service.fullDescription}
+              </p>
+
+              <div className="flex flex-wrap gap-4">
+                <Button to="/contact" variant="primary">
+                  Get Started Now <ArrowRight size={18} className="ml-2" />
+                </Button>
+              </div>
+            </Motion.div>
+
+            {/* Right Image */}
+            <Motion.div
+              initial={{ opacity: 0, scale: 0.9, rotate: 1 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative"
+            >
+              <div
+                className={`absolute -inset-1 bg-gradient-to-br ${service.color} opacity-30 rounded-2xl blur-lg`}
+              />
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-navy-900/50 backdrop-blur-sm aspect-video lg:aspect-auto lg:h-[400px]">
+                <img
+                  src={service.img}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent opacity-40" />
+              </div>
+            </Motion.div>
+          </div>
         </div>
       </section>
 

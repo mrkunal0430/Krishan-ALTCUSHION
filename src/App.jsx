@@ -8,8 +8,8 @@ import LoadingSpinner from "./components/ui/LoadingSpinner";
 
 // Lazy load pages for performance optimization
 const Home = lazy(() => import("./pages/Home"));
-const EnterpriseServices = lazy(() => import("./pages/EnterpriseServices"));
-const EnterpriseAbout = lazy(() => import("./pages/EnterpriseAbout"));
+const EnterpriseServices = lazy(() => import("./pages/Services"));
+const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -27,7 +27,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/services" element={<EnterpriseServices />} />
               <Route path="/services/:id" element={<ServiceDetail />} />
-              <Route path="/about" element={<EnterpriseAbout />} />
+              <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
             </Routes>

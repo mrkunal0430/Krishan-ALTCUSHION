@@ -7,7 +7,6 @@ import {
   Instagram,
   Mail,
   MapPin,
-  Phone,
 } from "lucide-react";
 
 const Footer = () => {
@@ -37,10 +36,22 @@ const Footer = () => {
               an evolving digital world.
             </p>
             <div className="flex space-x-4">
-              <SocialIcon Icon={Linkedin} />
-              <SocialIcon Icon={Twitter} />
-              <SocialIcon Icon={Instagram} />
-              <SocialIcon Icon={Facebook} />
+              <SocialIcon
+                Icon={Linkedin}
+                href="https://www.linkedin.com/in/krishanpal007/"
+              />
+              <SocialIcon
+                Icon={Twitter}
+                href="https://twitter.com/krishanpal007"
+              />
+              <SocialIcon
+                Icon={Instagram}
+                href="https://www.instagram.com/krishanpal007/"
+              />
+              <SocialIcon
+                Icon={Facebook}
+                href="https://www.facebook.com/krishanpal007"
+              />
             </div>
           </div>
 
@@ -92,13 +103,13 @@ const Footer = () => {
                 <div className="mr-3 mt-1 shrink-0 w-[18px]" />
                 <span className="text-slate-400 text-sm">
                   <strong className="text-white block">Innovation Hub</strong>
-                  Hyderabad, Telangana, India
+                  Delhi - India
                 </span>
               </li>
               <li className="flex items-center">
                 <Mail className="text-primary-500 mr-3 shrink-0" size={18} />
                 <span className="text-slate-400 text-sm">
-                  hello@360kavach.com
+                  info@360kavach.com
                 </span>
               </li>
             </ul>
@@ -124,15 +135,6 @@ const Footer = () => {
   );
 };
 
-const SocialIcon = ({ Icon }) => (
-  <a
-    href="#"
-    className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-primary-500 hover:text-navy-900 transition-all duration-300"
-  >
-    <Icon size={18} />
-  </a>
-);
-
 const FooterLink = ({ to, children }) => (
   <li>
     <Link
@@ -142,6 +144,17 @@ const FooterLink = ({ to, children }) => (
       {children}
     </Link>
   </li>
+);
+
+const SocialIcon = ({ Icon, href }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-primary-500 hover:text-navy-900 transition-all duration-300"
+  >
+    <Icon size={18} />
+  </a>
 );
 
 export default Footer;

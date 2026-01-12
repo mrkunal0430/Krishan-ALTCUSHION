@@ -55,7 +55,7 @@ const WelcomeModal = () => {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "36077747-5623-4404-8bed-e8bb7d1fce54", // <--- REPLACE THIS
+          access_key: "cb9bc556-26f7-4eba-80a5-0efd9b3332f8", // <--- REPLACE THIS
           subject: "New Lead Form is submitted ",
           from_name: "360 Kavach Lead Form",
           ...formData,

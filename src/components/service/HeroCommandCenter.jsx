@@ -7,7 +7,7 @@ const HeroCommandCenter = () => {
   return (
     <SectionWrapper
       background="transparent"
-      className="relative min-h-[90vh] flex items-center pt-32 pb-12 overflow-hidden"
+      className="relative min-h-[90vh] flex items-center pb-12 overflow-hidden"
     >
       {/* 1. Background Grid & Ambience - DARKER & MORE TECHNICAL */}
       <div className="absolute inset-0 pointer-events-none">
@@ -26,25 +26,25 @@ const HeroCommandCenter = () => {
         />
       </div>
 
-      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
         {/* 2. LEFT: Command Text */}
-        <div className="max-w-2xl">
+        <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-md mb-8">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-md mb-6 md:mb-8">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
               </span>
-              <span className="text-xs font-mono text-blue-300 tracking-wider">
+              <span className="text-[10px] md:text-xs font-mono text-blue-300 tracking-wider">
                 ENTERPRISE_READY
               </span>
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-display font-bold text-white leading-[1.1] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-white leading-[1.1] mb-6">
               Powering <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
                 Secure, Intelligent,
@@ -52,19 +52,19 @@ const HeroCommandCenter = () => {
               <br />& Scalable Enterprises
             </h1>
 
-            <p className="text-lg text-slate-400 leading-relaxed mb-10 max-w-lg border-l-2 border-blue-500/30 pl-6">
+            <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-8 md:mb-10 max-w-lg mx-auto lg:mx-0 lg:border-l-2 lg:border-blue-500/30 lg:pl-6">
               One integrated platform for cybersecurity, business consulting,
               IT, AI, and digital growth. We run the systems that run your
               business.
             </p>
 
-            <div className="flex flex-wrap items-center gap-6">
-              <button className="group relative px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] flex items-center overflow-hidden">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 md:gap-6">
+              <button className="group relative px-6 md:px-8 py-3 md:py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] flex items-center justify-center overflow-hidden text-sm md:text-base">
                 <span className="relative z-10">Deploy Platform</span>
                 <ArrowRight className="ml-2 w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
               </button>
 
-              <button className="px-8 py-4 bg-transparent border border-white/10 hover:border-white/30 text-white font-bold rounded-xl transition-all hover:bg-white/5 flex items-center group">
+              <button className="px-6 md:px-8 py-3 md:py-4 bg-transparent border border-white/10 hover:border-white/30 text-white font-bold rounded-xl transition-all hover:bg-white/5 flex items-center justify-center group text-sm md:text-base">
                 <Cpu className="mr-2 w-5 h-5 text-slate-400 group-hover:text-white transition-colors" />
                 View Architecture
               </button>
@@ -73,17 +73,17 @@ const HeroCommandCenter = () => {
         </div>
 
         {/* 3. RIGHT: 3D Floating Interface (Updated for Enterprise Feel) */}
-        <div className="relative h-[600px] hidden lg:block perspective-1000">
+        <div className="relative h-[400px] md:h-[600px] hidden lg:block perspective-1000">
           {/* Center Visual: The "Core" - Updated color */}
           <motion.div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-indigo-900/20 to-blue-900/20 rounded-full blur-3xl"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-96 md:h-96 bg-gradient-to-br from-indigo-900/20 to-blue-900/20 rounded-full blur-3xl"
             animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
             transition={{ duration: 10, repeat: Infinity }}
           />
 
           {/* Panel 1: Security Shield (Top Left) */}
           <FloatingPanel
-            className="top-[5%] left-[0%] w-72 border-blue-500/20"
+            className="top-[5%] left-[0%] w-60 md:w-72 border-blue-500/20"
             delay={0}
             xMove={-15}
             yMove={-20}
@@ -109,7 +109,7 @@ const HeroCommandCenter = () => {
 
           {/* Panel 2: AI Agents (Bottom Right) */}
           <FloatingPanel
-            className="bottom-[15%] right-[0%] w-80 border-purple-500/20"
+            className="bottom-[15%] right-[0%] w-64 md:w-80 border-purple-500/20"
             delay={1}
             xMove={20}
             yMove={20}
@@ -140,7 +140,7 @@ const HeroCommandCenter = () => {
 
           {/* Panel 3: Analytics (Center Right) - Blurrier background element */}
           <FloatingPanel
-            className="top-[30%] right-[-10%] w-64 blur-[0.5px] opacity-90 border-indigo-500/20"
+            className="top-[30%] right-[-10%] w-52 md:w-64 blur-[0.5px] opacity-90 border-indigo-500/20"
             delay={2}
             xMove={15}
             yMove={-10}
@@ -158,7 +158,7 @@ const HeroCommandCenter = () => {
 
           {/* Panel 4: System Health (Bottom Left) */}
           <FloatingPanel
-            className="bottom-[10%] left-[10%] w-56 border-emerald-500/20"
+            className="bottom-[10%] left-[10%] w-48 md:w-56 border-emerald-500/20"
             delay={0.5}
             xMove={-10}
             yMove={15}

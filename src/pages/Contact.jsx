@@ -45,7 +45,7 @@ const Contact = () => {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "36077747-5623-4404-8bed-e8bb7d1fce54", // <--- REPLACE THIS
+          access_key: "cb9bc556-26f7-4eba-80a5-0efd9b3332f8", // <--- REPLACE THIS
           subject: "New Inquiry from 360 Kavach Website",
           from_name: "360 Kavach Contact Form",
           ...formData,
@@ -91,14 +91,20 @@ const Contact = () => {
               <ContactItem
                 icon={Mail}
                 title="Email Us"
-                content="hello@altcushion.com"
-                link="mailto:hello@altcushion.com"
+                content="Info@360kavach.com"
+                link="mailto:Info@360kavach.com"
               />
               <ContactItem
                 icon={Phone}
                 title="Call Us"
-                content="+1 (555) 123-4567"
-                link="tel:+15551234567"
+                content="+91-97791-06973"
+                link="tel:+91-97791-06973"
+              />
+              <ContactItem
+                icon={Phone}
+                title="Call Us"
+                content="+1-226-224-8718"
+                link="tel:+1-226-224-8718"
               />
             </div>
 
@@ -111,7 +117,7 @@ const Contact = () => {
                   timezone="EST (UTC-5)"
                 />
                 <LocationCard
-                  city="Hyderabad"
+                  city="Delhi"
                   country="India"
                   timezone="IST (UTC+5:30)"
                 />
