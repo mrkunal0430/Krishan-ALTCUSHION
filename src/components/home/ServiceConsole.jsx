@@ -1,161 +1,285 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Monitor,
-  Smartphone,
-  Briefcase,
-  Scale,
-  GraduationCap,
-  Bot,
-  Target,
-  ArrowRight,
-  Zap,
-  Shield,
-  Cpu,
-} from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 import SectionWrapper from "../ui/SectionWrapper";
+import { servicesData } from "../../data/services";
 
-const services = [
-  {
-    id: "cyber-security",
-    title: "Cyber Security",
-    subtitle: "24/7 Digital Threat Defense",
-    icon: Shield,
-    description:
-      "Enterprise-grade cybersecurity with continuous monitoring, threat detection, data encryption, and compliance-ready security architecture.",
-    metrics: [
-      { label: "Threat Detection", value: "24/7" },
-      { label: "Risk Reduction", value: "95%" },
-      { label: "Data Protection", value: "Encrypted" },
-    ],
-    visual: "grid",
-    image: "/Services_Images/1.webp",
-  },
-  {
-    id: "business-consulting",
-    title: "Business Consulting",
-    subtitle: "Strategic Growth Engineering",
-    icon: Briefcase,
-    description:
-      "We design growth strategies, optimize operations, and help leadership teams make data-driven business decisions.",
-    metrics: [
-      { label: "Operational Efficiency", value: "+60%" },
-      { label: "Growth Strategy", value: "Optimized" },
-      { label: "Decision Accuracy", value: "High" },
-    ],
-    visual: "path",
-    image: "/Services_Images/2.webp",
-  },
-  {
-    id: "governance-compliance",
-    title: "Governance & Compliance",
-    subtitle: "Risk & Policy Control Systems",
-    icon: Scale,
-    description:
-      "Enterprise risk management, regulatory compliance, security frameworks, and audit-ready governance models.",
-    metrics: [
-      { label: "Compliance", value: "100%" },
-      { label: "Risk Coverage", value: "Enterprise" },
-      { label: "Audit Readiness", value: "Always" },
-    ],
-    visual: "shield",
-    image: "/Services_Images/3.webp",
-  },
-  {
-    id: "skill-development",
-    title: "Skill Development",
-    subtitle: "Leadership & Workforce Growth",
-    icon: GraduationCap,
-    description:
-      "Corporate training programs, leadership workshops, and professional development to build future-ready teams.",
-    metrics: [
-      { label: "Team Productivity", value: "+70%" },
-      { label: "Skill Readiness", value: "Advanced" },
-      { label: "Leadership Impact", value: "High" },
-    ],
-    visual: "pulse",
-    image: "/Services_Images/4.webp",
-  },
-  {
-    id: "web-development",
-    title: "Web Development",
-    subtitle: "High-Performance Digital Platforms",
-    icon: Monitor,
-    description:
-      "Custom-built, responsive websites and enterprise portals with optimized UI/UX, SEO, and blazing-fast performance.",
-    metrics: [
-      { label: "Performance", value: "100%" },
-      { label: "Uptime", value: "99.9%" },
-      { label: "SEO Score", value: "Top Tier" },
-    ],
-    visual: "binary",
-    image: "/Services_Images/5.webp",
-  },
-  {
-    id: "app-development",
-    title: "App Development",
-    subtitle: "Mobile & Software Ecosystems",
-    icon: Smartphone,
-    description:
-      "High-performance mobile and desktop applications with seamless UX, secure backend, and continuous maintenance.",
-    metrics: [
-      { label: "User Retention", value: "+45%" },
-      { label: "Crash Rate", value: "<0.1%" },
-      { label: "App Rating", value: "4.9★" },
-    ],
-    visual: "stack",
-    image: "/Services_Images/6.webp",
-  },
-  {
-    id: "it-consulting",
-    title: "IT Consulting",
-    subtitle: "Enterprise Technology Strategy",
-    icon: Target,
-    description:
-      "Digital transformation, cloud architecture, infrastructure planning, and IT optimization for scalable business growth.",
-    metrics: [
-      { label: "Tech Stack Accuracy", value: "5×" },
-      { label: "Delivery Clarity", value: "+200%" },
-      { label: "Go-To-Market", value: "Faster" },
-    ],
-    visual: "chart",
-    image: "/Services_Images/7.webp",
-  },
-  {
-    id: "technology-training",
-    title: "Technology Training",
-    subtitle: "Hands-On Technical Mastery",
-    icon: Cpu,
-    description:
-      "Advanced technology workshops, certifications, and real-world skill development in modern software and security.",
-    metrics: [
-      { label: "Skill Level", value: "Advanced" },
-      { label: "Certification", value: "Industry" },
-      { label: "Team Readiness", value: "100%" },
-    ],
-    visual: "nodes",
-    image: "/Services_Images/8.webp",
-  },
-  {
-    id: "ai-automation",
-    title: "AI Agents & Automation",
-    subtitle: "Intelligent Business Operations",
-    icon: Bot,
-    description:
-      "AI-powered automation for HR, sales, marketing, finance, and customer support including smart chatbots and workflow automation.",
-    metrics: [
-      { label: "Process Automation", value: "80%" },
-      { label: "Response Time", value: "Instant" },
-      { label: "Cost Reduction", value: "-40%" },
-    ],
-    visual: "neural",
-    image: "/Services_Images/9.webp",
-  },
-];
+// Transform servicesData to add detailed information cards for the console display
+const services = servicesData.map((service) => ({
+  ...service,
+  // Create 6 detailed information cards for each service
+  infoCards:
+    service.id === "cyber-security"
+      ? [
+          {
+            title: "24/7 SOC Monitoring",
+            description:
+              "Security Operations Center with round-the-clock threat surveillance and incident response",
+          },
+          {
+            title: "Zero Trust Architecture",
+            description:
+              "Never trust, always verify - comprehensive access control for every network request",
+          },
+          {
+            title: "VAPT Services",
+            description:
+              "Vulnerability Assessment & Penetration Testing to identify security gaps proactively",
+          },
+          {
+            title: "Compliance Ready",
+            description:
+              "GDPR, HIPAA, ISO 27001, and SOC2 compliance frameworks implementation",
+          },
+          {
+            title: "Data Encryption",
+            description:
+              "Bank-grade AES-256 encryption for data at rest and in transit",
+          },
+          {
+            title: "Incident Response",
+            description:
+              "Rapid containment and forensic analysis with automated threat mitigation",
+          },
+        ]
+      : service.id === "business-consulting"
+        ? [
+            {
+              title: "Strategic Planning",
+              description:
+                "Market analysis and growth roadmaps tailored to your business objectives",
+            },
+            {
+              title: "Process Optimization",
+              description:
+                "Streamline operations and eliminate redundancies for improved efficiency",
+            },
+            {
+              title: "Leadership Training",
+              description:
+                "Executive coaching and C-suite development programs for strategic decision-making",
+            },
+            {
+              title: "Digital Transformation",
+              description:
+                "Technology adoption strategies with change management and team readiness",
+            },
+            {
+              title: "Workforce Upskilling",
+              description:
+                "Corporate training programs in cybersecurity, software, and professional skills",
+            },
+            {
+              title: "KPI Frameworks",
+              description:
+                "Design and implement measurable performance indicators aligned with business goals",
+            },
+          ]
+        : service.id === "governance-compliance"
+          ? [
+              {
+                title: "HIPAA Compliance",
+                description:
+                  "Healthcare data protection and privacy compliance for medical organizations",
+              },
+              {
+                title: "GDPR Framework",
+                description:
+                  "European data privacy regulation compliance for global data handling",
+              },
+              {
+                title: "ISO Certification",
+                description:
+                  "ISO 27001, 9001, and other international standards implementation support",
+              },
+              {
+                title: "Risk Management",
+                description:
+                  "Enterprise risk assessment, mitigation strategies, and continuous monitoring",
+              },
+              {
+                title: "Audit Preparation",
+                description:
+                  "Mock audits, documentation organization, and evidence management systems",
+              },
+              {
+                title: "Policy Governance",
+                description:
+                  "Internal policy creation, third-party risk assessment, and compliance reporting",
+              },
+            ]
+          : service.id === "web-app-development"
+            ? [
+                {
+                  title: "Responsive Web Design",
+                  description:
+                    "Mobile-first, pixel-perfect websites optimized for all devices and screen sizes",
+                },
+                {
+                  title: "Native Mobile Apps",
+                  description:
+                    "iOS and Android applications with native performance and user experience",
+                },
+                {
+                  title: "Cross-Platform Solutions",
+                  description:
+                    "Flutter and React Native apps that run seamlessly on multiple platforms",
+                },
+                {
+                  title: "SaaS Platforms",
+                  description:
+                    "Scalable software-as-a-service solutions with subscription and billing integration",
+                },
+                {
+                  title: "E-commerce Systems",
+                  description:
+                    "Full-featured online stores with payment gateways and inventory management",
+                },
+                {
+                  title: "API Development",
+                  description:
+                    "RESTful and GraphQL APIs with headless CMS integration for flexible content",
+                },
+              ]
+            : service.id === "erp-solutions"
+              ? [
+                  {
+                    title: "Finance & Accounting",
+                    description:
+                      "Automated financial reporting, multi-currency support, and tax compliance management",
+                  },
+                  {
+                    title: "Inventory Control",
+                    description:
+                      "Real-time stock tracking, warehouse management, and demand forecasting",
+                  },
+                  {
+                    title: "HR & Payroll",
+                    description:
+                      "Employee management, attendance tracking, payroll processing, and benefit administration",
+                  },
+                  {
+                    title: "CRM Integration",
+                    description:
+                      "Customer relationship management with sales pipeline and marketing automation",
+                  },
+                  {
+                    title: "Supply Chain",
+                    description:
+                      "End-to-end procurement, vendor management, and logistics tracking",
+                  },
+                  {
+                    title: "Business Intelligence",
+                    description:
+                      "Interactive dashboards with real-time analytics for data-driven decision making",
+                  },
+                ]
+              : service.id === "it-consulting"
+                ? [
+                    {
+                      title: "Cloud Migration",
+                      description:
+                        "Seamless transition to AWS, Azure, or GCP with zero downtime and data integrity",
+                    },
+                    {
+                      title: "Infrastructure as Code",
+                      description:
+                        "Automated infrastructure provisioning using Terraform and modern DevOps practices",
+                    },
+                    {
+                      title: "Legacy Modernization",
+                      description:
+                        "Transform outdated systems into cloud-native, scalable microservices architecture",
+                    },
+                    {
+                      title: "Cost Optimization",
+                      description:
+                        "IT spend analysis, license management, and resource allocation for maximum ROI",
+                    },
+                    {
+                      title: "Disaster Recovery",
+                      description:
+                        "Business continuity planning with automated backup and failover systems",
+                    },
+                    {
+                      title: "Fractional CTO/CIO",
+                      description:
+                        "Expert technology leadership on-demand without full-time executive overhead",
+                    },
+                  ]
+                : service.id === "ai-automation"
+                  ? [
+                      {
+                        title: "Intelligent Chatbots",
+                        description:
+                          "AI-powered customer support with natural language understanding and 24/7 availability",
+                      },
+                      {
+                        title: "Process Automation",
+                        description:
+                          "RPA for repetitive tasks in finance, HR, and operations to reduce manual work",
+                      },
+                      {
+                        title: "Predictive Analytics",
+                        description:
+                          "Machine learning models for sales forecasting, demand planning, and trend analysis",
+                      },
+                      {
+                        title: "Custom AI Agents",
+                        description:
+                          "Specialized LLM-based agents for lead generation, data entry, and customer engagement",
+                      },
+                      {
+                        title: "Document Processing",
+                        description:
+                          "Automated extraction and classification of information from invoices and contracts",
+                      },
+                      {
+                        title: "Computer Vision",
+                        description:
+                          "Image recognition and video analysis for quality control and security monitoring",
+                      },
+                    ]
+                  : [
+                      {
+                        title: "Premium Service",
+                        description:
+                          "High-quality solutions tailored to your specific business requirements",
+                      },
+                      {
+                        title: "Expert Team",
+                        description:
+                          "Experienced professionals with deep industry knowledge and technical expertise",
+                      },
+                      {
+                        title: "24/7 Support",
+                        description:
+                          "Round-the-clock assistance and monitoring for uninterrupted operations",
+                      },
+                      {
+                        title: "Scalable Solutions",
+                        description:
+                          "Architecture designed to grow seamlessly with your business expansion",
+                      },
+                      {
+                        title: "Security First",
+                        description:
+                          "Enterprise-grade security measures integrated from the ground up",
+                      },
+                      {
+                        title: "Proven Results",
+                        description:
+                          "Track record of successful implementations and satisfied clients",
+                      },
+                    ],
+  description:
+    service.shortDescription ||
+    service.fullDescription.substring(0, 150) + "...",
+}));
 
 const ServiceConsole = () => {
-  const [activeId, setActiveId] = useState("web-development");
+  const [activeId, setActiveId] = useState("web-app-development");
   const activeService = services.find((s) => s.id === activeId) || services[0];
 
   return (
@@ -228,7 +352,7 @@ const ServiceConsole = () => {
                     className="flex flex-col h-full"
                   >
                     {/* Top Bar: Icon & ID */}
-                    <div className="flex justify-between items-start mb-8 border-b border-white/5 pb-6">
+                    <div className="flex justify-between items-start mb-6 border-b border-white/5 pb-5">
                       <div className="flex items-center space-x-4">
                         <div className="p-3 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg shadow-lg shadow-orange-500/20">
                           <activeService.icon
@@ -237,10 +361,10 @@ const ServiceConsole = () => {
                           />
                         </div>
                         <div>
-                          <h3 className="text-3xl font-bold text-white tracking-tight">
+                          <h3 className="text-2xl font-bold text-white tracking-tight">
                             {activeService.title}
                           </h3>
-                          <p className="text-slate-400 text-sm font-mono">
+                          <p className="text-slate-400 text-xs font-mono">
                             {activeService.subtitle}
                           </p>
                         </div>
@@ -259,53 +383,61 @@ const ServiceConsole = () => {
                       </div>
                     </div>
 
-                    {/* Main Content Info */}
-                    <div className="grid grid-cols-2 gap-12 flex-grow overflow-y-auto pr-2 custom-scrollbar">
-                      <div className="space-y-8">
-                        <p className="text-lg text-slate-300 leading-relaxed font-light">
-                          {activeService.description}
-                        </p>
+                    {/* Service Overview */}
+                    <div className="mb-6">
+                      <p className="text-base text-slate-300 leading-relaxed">
+                        {activeService.description}
+                      </p>
+                    </div>
 
-                        <div className="space-y-4">
-                          <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-2 flex items-center">
-                            <Zap size={14} className="text-orange-500 mr-2" />{" "}
-                            Key Outcomes
-                          </h4>
-                          <div className="grid grid-cols-1 gap-3">
-                            {activeService.metrics.map((metric, i) => (
-                              <div
-                                key={i}
-                                className="flex items-center justify-between bg-white/5 border border-white/5 p-3 rounded-lg"
-                              >
-                                <span className="text-slate-400 text-sm">
-                                  {metric.label}
-                                </span>
-                                <span className="text-orange-400 font-mono font-bold">
-                                  {metric.value}
+                    {/* Service Information Cards - 2 Rows x 3 Columns Grid */}
+                    <div className="flex-grow overflow-y-auto pr-2 custom-scrollbar">
+                      <div className="grid grid-cols-3 grid-rows-2 gap-4">
+                        {activeService.infoCards?.map((card, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.08 }}
+                            className="group relative bg-gradient-to-br from-navy-800/80 to-navy-900/80 border border-white/10 rounded-xl p-5 hover:border-orange-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/10"
+                          >
+                            {/* Hover Effect */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
+
+                            {/* Content */}
+                            <div className="relative z-10">
+                              <div className="flex items-start justify-between mb-3">
+                                <div className="p-2 bg-white/5 rounded-lg group-hover:bg-orange-500/10 transition-colors">
+                                  <Zap size={16} className="text-orange-400" />
+                                </div>
+                                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wide">
+                                  Feature
                                 </span>
                               </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <Link
-                          to={`/services/${activeService.id}`}
-                          className="group inline-flex items-center space-x-2 text-white font-bold text-lg mt-4 cursor-pointer"
-                        >
-                          <span>Explore Service</span>
-                          <ArrowRight className="text-orange-500 group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                              <div className="text-sm font-bold text-white mb-2 leading-tight">
+                                {card.title}
+                              </div>
+                              <div className="text-xs text-slate-400 leading-relaxed line-clamp-3">
+                                {card.description}
+                              </div>
+                            </div>
+                          </motion.div>
+                        ))}
                       </div>
+                    </div>
 
-                      {/* Dynamic Visual Content */}
-                      <div className="relative flex items-center justify-center bg-navy-900/50 rounded-2xl border border-white/5 overflow-hidden group min-h-[300px]">
-                        <img
-                          src={activeService.image}
-                          alt={activeService.title}
-                          className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                    {/* Action Button - Outside scrollable area */}
+                    <div className="pt-4 border-t border-white/5 mt-4">
+                      <Link
+                        to={`/services/${activeService.id}`}
+                        className="group inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg text-white font-bold hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300 hover:scale-[1.02]"
+                      >
+                        <span>Explore Full Details</span>
+                        <ArrowRight
+                          className="group-hover:translate-x-1 transition-transform"
+                          size={18}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent opacity-60" />
-                      </div>
+                      </Link>
                     </div>
                   </motion.div>
                 </AnimatePresence>
@@ -390,19 +522,26 @@ const ServiceConsole = () => {
                         {service.description}
                       </p>
 
-                      {/* Metrics Grid */}
-                      <div className="grid grid-cols-1 gap-2 mb-6">
-                        {service.metrics.map((metric, i) => (
+                      {/* Information Cards Grid */}
+                      <div className="grid grid-cols-1 gap-3 mb-6">
+                        {service.infoCards?.map((card, i) => (
                           <div
                             key={i}
-                            className="flex items-center justify-between bg-white/5 p-3 rounded-lg border border-white/5"
+                            className="bg-gradient-to-br from-navy-800/60 to-navy-900/60 p-4 rounded-lg border border-white/5"
                           >
-                            <span className="text-xs text-slate-400">
-                              {metric.label}
-                            </span>
-                            <span className="text-sm font-mono font-bold text-orange-400">
-                              {metric.value}
-                            </span>
+                            <div className="flex items-start space-x-3">
+                              <div className="p-2 bg-orange-500/10 rounded-lg flex-shrink-0">
+                                <Zap size={14} className="text-orange-400" />
+                              </div>
+                              <div className="flex-1">
+                                <h4 className="text-sm font-bold text-white mb-1">
+                                  {card.title}
+                                </h4>
+                                <p className="text-xs text-slate-400 leading-relaxed">
+                                  {card.description}
+                                </p>
+                              </div>
+                            </div>
                           </div>
                         ))}
                       </div>

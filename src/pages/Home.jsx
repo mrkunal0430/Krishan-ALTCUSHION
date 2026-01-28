@@ -17,7 +17,6 @@ const Home = () => {
     <div className="min-h-screen">
       <HeroCommandCenter />
       <StatsRibbon />
-      <WhyChooseUs />
       <ServiceConsole />
       <div className="hidden md:block">
         <ProcessEngine />
@@ -26,7 +25,9 @@ const Home = () => {
         <ProcessTimeline />
       </div>
       <Testimonials />
+
       <PartnerEcosystem />
+      <WhyChooseUs />
     </div>
   );
 };

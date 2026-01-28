@@ -94,13 +94,20 @@ const ProcessEngine = () => {
           {/* LEFT: Process Rail */}
           <div className="lg:col-span-5 relative">
             {/* Vertical Track */}
-            <div className="absolute left-5 top-8 bottom-8 w-px bg-white/10">
+            <div className="absolute left-5 top-8 bottom-32 w-px bg-white/10">
               {/* Active Line Animation */}
               <Motion.div
                 className="absolute top-0 left-0 w-full bg-gradient-to-b from-orange-500 to-red-500 shadow-[0_0_15px_rgba(249,115,22,0.6)]"
                 initial={{ height: "0%" }}
                 animate={{
-                  height: `${((activeStep - 1) / (phases.length - 1)) * 100}%`,
+                  height:
+                    activeStep === 1
+                      ? "0%"
+                      : activeStep === 2
+                        ? "33%"
+                        : activeStep === 3
+                          ? "65%"
+                          : "98%",
                 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               />
@@ -224,9 +231,6 @@ const ProcessModule = ({ phase }) => {
 
             {/* Outcomes List */}
             <div className="space-y-4">
-              <h4 className="text-sm font-bold text-white uppercase tracking-wider flex items-center opacity-80">
-                System Outcomes
-              </h4>
               <div className="space-y-3">
                 {phase.outcomes.map((outcome, idx) => (
                   <Motion.div

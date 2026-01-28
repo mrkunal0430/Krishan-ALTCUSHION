@@ -53,9 +53,12 @@ const HeroCommandCenter = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-wrap gap-4"
           >
-            <Button to="/contact" variant="primary" size="lg" icon={ArrowRight}>
-              Initiate Protection
-            </Button>
+            <Button
+              to="/contact"
+              variant="primary"
+              size="lg"
+              icon={ArrowRight}
+            ></Button>
             <Button to="/services" variant="glass" size="lg">
               View Solutions
             </Button>
