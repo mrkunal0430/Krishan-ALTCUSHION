@@ -127,7 +127,7 @@ const Contact = () => {
               <h3 className="text-2xl font-bold mb-6">Global Presence</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <LocationCard
-                  city="Richmond Hill"
+                  city="Toronto"
                   country="Canada"
                   timezone="EST (UTC-5)"
                 />
@@ -154,7 +154,7 @@ const Contact = () => {
                       exit={{ opacity: 0, x: -20 }}
                       className="space-y-6"
                     >
-                      <h3 className="text-2xl font-bold mb-6">01. About You</h3>
+                      <h3 className="text-2xl font-bold mb-6">About You</h3>
 
                       <InputField
                         label="Full Name"
@@ -199,7 +199,7 @@ const Contact = () => {
                       className="space-y-6"
                     >
                       <h3 className="text-2xl font-bold mb-6">
-                        02. Project Details
+                        Project Details
                       </h3>
 
                       <SelectField

@@ -26,7 +26,6 @@ const Navbar = () => {
     { name: "Services", path: "/services" },
     { name: "About", path: "/about" },
     { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/contact" },
   ];
 
   return (
@@ -70,7 +69,7 @@ const Navbar = () => {
             to="/contact"
             className="px-6 py-2 rounded-full border border-primary-500/30 text-primary-500 text-sm font-medium hover:bg-primary-500/10 transition-colors"
           >
-            Get Started
+            Contact Us
           </Link>
         </div>
 
