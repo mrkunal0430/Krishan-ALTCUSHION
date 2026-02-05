@@ -1,5 +1,10 @@
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import LeadForm from "./components/ui/LeadForm";
@@ -14,6 +19,8 @@ const Contact = lazy(() => import("./pages/Contact"));
 const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Blog = lazy(() => import("./pages/Blog"));
+const Training = lazy(() => import("./pages/Training"));
+const TrainingDetail = lazy(() => import("./pages/TrainingDetail"));
 
 // Admin pages
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
@@ -59,6 +66,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/training" element={<Training />} />
+          <Route path="/training/:id" element={<TrainingDetail />} />
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLogin />} />

@@ -13,11 +13,11 @@ const HeroCommandCenter = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-6xl font-display font-bold leading-tight text-white"
+            className="text-5xl md:text-5xl font-display font-bold leading-tight text-white"
           >
-            Total Digital <br />
+            Technology is the tool <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-primary-200 to-white">
-              Defense & Growth
+              Business growth is the goal
             </span>
           </Motion.h1>
 
@@ -27,9 +27,9 @@ const HeroCommandCenter = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg text-slate-400 max-w-xl leading-relaxed font-light"
           >
-            360 Kavach is your elite partner for securing digital infrastructure
-            and accelerating enterprise growth. We blend advanced cybersecurity
-            with cutting-edge software engineering.
+            360 Kavach is your elite partner for digital infrastructure and
+            accelerating enterprise growth. We blend advanced cybersecurity with
+            cutting-edge software engineering.
           </Motion.p>
 
           <Motion.div
