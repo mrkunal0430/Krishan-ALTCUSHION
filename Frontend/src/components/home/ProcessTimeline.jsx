@@ -1,38 +1,57 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import SectionWrapper from '../ui/SectionWrapper';
-import { MessageSquare, Lightbulb, Zap, RefreshCw } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import SectionWrapper from "../ui/SectionWrapper";
+import {
+  MessageSquare,
+  Lightbulb,
+  Code2,
+  ClipboardCheck,
+  Rocket,
+} from "lucide-react";
 
 const steps = [
   {
     icon: MessageSquare,
-    title: 'Consult',
-    description: 'We dive deep into your business ecosystem to understand challenges, goals, and opportunities for growth.'
+    title: "Consultation",
+    description:
+      "We dive deep into your business ecosystem to understand challenges, goals, and opportunities for growth.",
   },
   {
     icon: Lightbulb,
-    title: 'Strategize',
-    description: 'Our architects design a bespoke roadmap combining technical innovation with risk intelligence.'
+    title: "Strategy",
+    description:
+      "Our architects design a bespoke roadmap combining technical innovation with risk intelligence.",
   },
   {
-    icon: Zap,
-    title: 'Implement',
-    description: 'Agile execution using cutting-edge tech stacks, ensuring seamless integration and minimal disruption.'
+    icon: Code2,
+    title: "Implementation",
+    description:
+      "Agile execution using cutting-edge tech stacks, ensuring seamless integration and minimal disruption.",
   },
   {
-    icon: RefreshCw,
-    title: 'Evolve',
-    description: 'Continuous monitoring, optimization, and scaling to keep your business ahead of market curves.'
-  }
+    icon: ClipboardCheck,
+    title: "Review",
+    description:
+      "Comprehensive evaluation and testing to ensure solutions meet quality standards and business objectives.",
+  },
+  {
+    icon: Rocket,
+    title: "Support & Optimization",
+    description:
+      "Continuous monitoring, improvement, and scaling to keep your business ahead of market curves.",
+  },
 ];
 
 const ProcessTimeline = () => {
   return (
     <SectionWrapper id="process" background="dark">
       <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6">The Evolution <span className="text-gradient-primary">Protocol</span></h2>
+        <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          The Evolution <span className="text-gradient-primary">Protocol</span>
+        </h2>
         <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-          A systematic approach ensuring predictable success and sustainable growth.
+          A systematic approach ensuring predictable success and sustainable
+          growth.
         </p>
       </div>
 
@@ -60,11 +79,13 @@ const TimelineItem = ({ step, index }) => {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8 }}
       className={`relative flex flex-col md:flex-row items-center ${
-        isEven ? 'md:flex-row' : 'md:flex-row-reverse'
+        isEven ? "md:flex-row" : "md:flex-row-reverse"
       }`}
     >
       {/* Content */}
-      <div className={`w-full md:w-1/2 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'} text-center mb-8 md:mb-0`}>
+      <div
+        className={`w-full md:w-1/2 ${isEven ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"} text-center mb-8 md:mb-0`}
+      >
         <h3 className="text-2xl font-bold mb-3 text-white">{step.title}</h3>
         <p className="text-slate-400">{step.description}</p>
       </div>

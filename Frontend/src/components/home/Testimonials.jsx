@@ -8,7 +8,7 @@ const testimonials = [
     name: "Sarah Jenkins",
     role: "CTO @ FinEdge",
     content:
-      "AltCushion transformed our legacy systems into a modern, scalable architecture. The ROI was evident effectively instantly.",
+      "360kavach transformed our legacy systems into a modern, scalable architecture. The ROI was evident effectively instantly.",
     image: "https://randomuser.me/api/portraits/women/32.jpg",
   },
   {
@@ -72,7 +72,7 @@ const testimonials = [
     name: "Marcus Johnson",
     role: "Ops Lead @ SecureNet",
     content:
-      "Security was our #1 concern. AltCushion delivered a fortress without compromising usability.",
+      "Security was our #1 concern. 360kavach delivered a fortress without compromising usability.",
     image: "https://randomuser.me/api/portraits/men/67.jpg",
   },
 ];
@@ -87,9 +87,9 @@ const Testimonials = () => {
         <div className="flex flex-col md:flex-row gap-16 items-center">
           {/* Left Content */}
           <div className="w-full md:w-1/3 space-y-8">
-            <div className="inline-flex items-center space-x-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-4 py-1.5 backdrop-blur-md">
-              <UserCheck size={14} className="text-orange-400" />
-              <span className="text-orange-300 text-xs font-mono uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20">
+              <UserCheck className="w-4 h-4 text-primary-500" />
+              <span className="text-sm text-primary-400 font-medium">
                 Happy Clients
               </span>
             </div>
@@ -100,7 +100,7 @@ const Testimonials = () => {
             </h2>
 
             <p className="text-slate-400 text-lg leading-relaxed">
-              Read why forward-thinking companies trust AltCushion to handle
+              Read why forward-thinking companies trust 360kavach to handle
               their most critical digital transformations.
             </p>
 

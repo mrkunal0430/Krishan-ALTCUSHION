@@ -1,6 +1,6 @@
 import { 
   Shield, Briefcase, Scale, Monitor, 
-  Server, Bot, Database
+  Server, Bot, Database, Eye
 } from 'lucide-react';
 
 export const servicesData = [
@@ -34,6 +34,42 @@ export const servicesData = [
       { number: '02', title: 'Harden', desc: 'Patching vulnerabilities and implementing firewalls.' },
       { number: '03', title: 'Monitor', desc: 'Real-time 24/7 surveillance of network traffic.' },
       { number: '04', title: 'Respond', desc: 'Immediate automated and human response to threats.' }
+    ]
+  },
+  {
+    id: 'managed-detection-response',
+    title: 'Managed Detection & Response',
+    subtitle: 'SOC, Forensics & Threat Hunting',
+    shortDescription: '24/7 Security Operations Center with incident response, digital forensics, malware analysis, and advanced threat hunting capabilities.',
+    fullDescription: 'Our Managed Detection & Response (MDR) service provides round-the-clock security monitoring through our Cloud Native and On-Prem SOC solutions. We combine advanced threat detection, rapid incident response, digital forensics, and proactive threat hunting to protect your organization from sophisticated cyber threats. Our team of experts handles everything from APT incident handling to reverse engineering and exploit analysis.',
+    icon: Eye,
+    img: '/Services_Images/mdr.webp',
+    color: 'from-rose-500 to-pink-600',
+    features: [
+      'Cloud Native SOC',
+      'On-Prem SOC Solutions',
+      'Incidence Response',
+      'Darkweb Monitoring',
+      'APT Incident Handling',
+      'Digital Forensics',
+      'Cyber Crime Investigations',
+      'Malware Analysis',
+      'Reverse Engineering',
+      'Exploit Writing & Tradecraft Development'
+    ],
+    benefits: [
+      '24/7 security monitoring without building in-house team.',
+      'Rapid incident response within minutes of detection.',
+      'Comprehensive forensic analysis for legal proceedings.',
+      'Proactive threat hunting to identify hidden threats.',
+      'Advanced malware analysis and reverse engineering.',
+      'Dark web monitoring to detect leaked credentials.'
+    ],
+    process: [
+      { number: '01', title: 'Deploy', desc: 'Setting up SOC infrastructure and monitoring agents.' },
+      { number: '02', title: 'Monitor', desc: '24/7 threat detection and anomaly analysis.' },
+      { number: '03', title: 'Respond', desc: 'Rapid incident containment and neutralization.' },
+      { number: '04', title: 'Investigate', desc: 'Deep forensic analysis and threat intelligence.' }
     ]
   },
   {

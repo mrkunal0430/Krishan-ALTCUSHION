@@ -71,7 +71,7 @@ const PartnerEcosystem = () => {
            >
              <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">
                Powering the <br />
-               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
+               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
                  Next Generation
                </span>
              </h2>

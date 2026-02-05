@@ -120,8 +120,8 @@ const WhyChooseUs = () => {
     >
       {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-500/5 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[150px]" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-500/5 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary-300/5 rounded-full blur-[150px]" />
       </div>
 
       <div className="relative z-10">
@@ -131,9 +131,10 @@ const WhyChooseUs = () => {
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 mb-6 border border-orange-500/30 rounded-full bg-orange-500/10 backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-8"
           >
-            <span className="text-orange-400 text-xs font-mono tracking-widest uppercase">
+            <Zap className="w-4 h-4 text-primary-500" />
+            <span className="text-sm text-primary-400 font-medium">
               Why Choose 360 Kavach
             </span>
           </Motion.div>
@@ -142,10 +143,10 @@ const WhyChooseUs = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight"
+            className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight text-white"
           >
             Excellence Across{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
               Every Service
             </span>
           </Motion.h2>
@@ -212,7 +213,7 @@ const FeatureCard = ({ feature, index, isHovered, onHover, onLeave }) => {
       onMouseLeave={onLeave}
       className={`group relative p-6 rounded-2xl border transition-all duration-300 h-full cursor-pointer overflow-hidden ${
         isHovered
-          ? "bg-navy-800/60 border-orange-500/40 -translate-y-2 shadow-2xl shadow-orange-500/10"
+          ? "bg-navy-800/60 border-primary-500/40 -translate-y-2 shadow-2xl shadow-primary-500/10"
           : "bg-white/[0.02] border-white/5 hover:bg-white/[0.04]"
       }`}
     >
@@ -226,34 +227,34 @@ const FeatureCard = ({ feature, index, isHovered, onHover, onLeave }) => {
         <Motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="absolute inset-0 bg-gradient-to-b from-orange-500/5 to-transparent rounded-2xl pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-b from-primary-500/5 to-transparent rounded-2xl pointer-events-none"
         />
       )}
 
       {/* Category Badge */}
       <div className="flex items-center justify-between mb-4">
-        <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">
+        <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
           {feature.category}
         </span>
-        <div
-          className={`px-2 py-0.5 rounded-full bg-gradient-to-r ${feature.color} opacity-20 text-[10px] font-bold text-white`}
-        >
+        <div className="px-2 py-0.5 rounded-full bg-primary-500/20 border border-primary-500/30 text-[10px] font-bold text-primary-400">
           {feature.stat}
         </div>
       </div>
 
       {/* Icon */}
       <div
-        className={`relative w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-gradient-to-br ${feature.color} shadow-lg transition-transform duration-300 ${isHovered ? "scale-110" : "scale-100"}`}
+        className={`relative w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} p-0.5 transition-transform duration-300 ${isHovered ? "scale-110" : "scale-100"} mb-4`}
       >
-        <feature.icon className="text-white" size={24} />
+        <div className="w-full h-full bg-navy-900 rounded-[10px] flex items-center justify-center">
+          <feature.icon className="text-white" size={24} />
+        </div>
       </div>
 
       {/* Content */}
-      <h3 className="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-orange-300 transition-colors">
+      <h3 className="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-primary-400 transition-colors">
         {feature.title}
       </h3>
-      <p className="text-slate-400 text-sm leading-relaxed mb-4 line-clamp-3">
+      <p className="text-slate-300 text-sm leading-relaxed mb-4 line-clamp-3">
         {feature.description}
       </p>
 
@@ -262,7 +263,7 @@ const FeatureCard = ({ feature, index, isHovered, onHover, onLeave }) => {
         {feature.services.slice(0, 2).map((service, idx) => (
           <span
             key={idx}
-            className="text-[10px] px-2 py-1 rounded-md bg-white/5 text-slate-500 font-medium"
+            className="text-[10px] px-2 py-1 rounded-md bg-white/10 text-slate-300 font-medium"
           >
             {service.length > 15 ? service.substring(0, 15) + "..." : service}
           </span>
@@ -271,7 +272,7 @@ const FeatureCard = ({ feature, index, isHovered, onHover, onLeave }) => {
 
       {/* Hover Indicator */}
       <Motion.div
-        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-orange-500 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity"
+        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-primary-500 via-primary-300 to-white opacity-0 group-hover:opacity-100 transition-opacity"
         animate={{ width: isHovered ? "100%" : "0%" }}
         transition={{ duration: 0.3 }}
       />
@@ -285,8 +286,8 @@ const TrustStat = ({ icon: Icon, value, label }) => {
       whileHover={{ scale: 1.05 }}
       className="text-center group cursor-default"
     >
-      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/5 mb-3 group-hover:bg-orange-500/10 transition-colors">
-        <Icon size={20} className="text-orange-400" />
+      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/5 mb-3 group-hover:bg-primary-500/10 transition-colors">
+        <Icon size={20} className="text-primary-400" />
       </div>
       <div className="text-2xl md:text-3xl font-bold text-white mb-1">
         {value}

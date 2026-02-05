@@ -10,6 +10,7 @@ import {
   Server,
   Bot,
   Database,
+  Eye,
   Sparkles,
   Zap,
   Globe,
@@ -20,12 +21,25 @@ const services = [
   {
     id: "cyber-security",
     title: "Cyber Security",
-    shortTitle: "Security",
+    shortTitle: "Cyber Security",
     description: "Enterprise-grade protection with 24/7 threat monitoring",
     icon: Shield,
     color: "from-red-500 to-orange-500",
     bgGlow: "bg-red-500/20",
     stats: "99.9% Threat Detection",
+    textColor: "text-white",
+  },
+  {
+    id: "managed-detection-response",
+    title: "Managed Detection & Response",
+    shortTitle: "MDR",
+    description:
+      "24/7 SOC, incident response, digital forensics & threat hunting",
+    icon: Eye,
+    color: "from-rose-500 to-pink-600",
+    bgGlow: "bg-rose-500/20",
+    stats: "24/7 SOC Coverage",
+    textColor: "text-white",
   },
   {
     id: "business-consulting",
@@ -36,6 +50,7 @@ const services = [
     color: "from-blue-500 to-indigo-500",
     bgGlow: "bg-blue-500/20",
     stats: "30% Cost Reduction",
+    textColor: "text-white",
   },
   {
     id: "governance-compliance",
@@ -43,9 +58,10 @@ const services = [
     shortTitle: "Compliance",
     description: "Risk frameworks & regulatory alignment",
     icon: Scale,
-    color: "from-emerald-500 to-green-500",
+    color: "from-emerald-500 to-green-600",
     bgGlow: "bg-emerald-500/20",
     stats: "100% Audit Ready",
+    textColor: "text-white",
   },
   {
     id: "web-app-development",
@@ -53,9 +69,10 @@ const services = [
     shortTitle: "Development",
     description: "High-performance web, mobile & cloud platforms",
     icon: Monitor,
-    color: "from-cyan-400 to-blue-500",
+    color: "from-cyan-500 to-blue-600",
     bgGlow: "bg-cyan-500/20",
     stats: "<2s Load Time",
+    textColor: "text-white",
   },
   {
     id: "erp-solutions",
@@ -63,9 +80,10 @@ const services = [
     shortTitle: "ERP",
     description: "Integrated business management systems",
     icon: Database,
-    color: "from-amber-500 to-orange-500",
+    color: "from-amber-500 to-orange-600",
     bgGlow: "bg-amber-500/20",
     stats: "85% Automation",
+    textColor: "text-navy-900",
   },
   {
     id: "it-consulting",
@@ -73,9 +91,10 @@ const services = [
     shortTitle: "IT Strategy",
     description: "Cloud infrastructure & technology leadership",
     icon: Server,
-    color: "from-slate-400 to-slate-500",
+    color: "from-slate-400 to-slate-600",
     bgGlow: "bg-slate-500/20",
     stats: "99.99% Uptime",
+    textColor: "text-white",
   },
   {
     id: "ai-automation",
@@ -83,9 +102,10 @@ const services = [
     shortTitle: "AI Agents",
     description: "Intelligent automation that works 24/7",
     icon: Bot,
-    color: "from-violet-500 to-purple-500",
+    color: "from-violet-500 to-purple-600",
     bgGlow: "bg-violet-500/20",
     stats: "24/7 Operations",
+    textColor: "text-white",
   },
 ];
 
@@ -108,7 +128,7 @@ const HeroCommandCenter = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-center pt-16 pb-4 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-24 md:pt-28 lg:pt-32 pb-8 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -139,22 +159,13 @@ const HeroCommandCenter = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-6"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-500/10 border border-primary-500/20 backdrop-blur-sm mb-4">
-            <Sparkles size={12} className="text-primary-400" />
-            <span className="text-[10px] md:text-xs font-mono text-primary-300 tracking-wider">
-              7 ENTERPRISE SOLUTIONS • ONE PLATFORM
-            </span>
-          </div>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-3">
             Transform Your Business With{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-cyan-400 to-blue-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
               World-Class
             </span>{" "}
             Solutions
           </h1>
-          <p className="text-sm md:text-base text-slate-400 max-w-2xl mx-auto">
-            From cybersecurity to AI automation — enterprise-grade solutions that secure, optimize, and scale.
-          </p>
         </motion.div>
 
         {/* Service Pills */}
@@ -170,7 +181,7 @@ const HeroCommandCenter = () => {
               onClick={() => handleServiceClick(index)}
               className={`relative px-3 md:px-4 py-1.5 md:py-2 rounded-full text-[11px] md:text-xs font-medium transition-all duration-300 ${
                 activeService === index
-                  ? "text-navy-900 shadow-lg"
+                  ? `${service.textColor} shadow-lg`
                   : "text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10"
               }`}
               whileHover={{ scale: 1.05 }}
@@ -207,15 +218,22 @@ const HeroCommandCenter = () => {
               transition={{ duration: 0.4 }}
             >
               <div className="relative bg-navy-900/50 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden">
-                <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${services[activeService].color}`} />
+                <div
+                  className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${services[activeService].color}`}
+                />
 
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 p-4 md:p-6">
                   {/* Left: Active Service Info */}
                   <div className="lg:col-span-2 space-y-4">
                     <div className="flex items-center gap-3">
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${services[activeService].color} p-[1px]`}>
+                      <div
+                        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${services[activeService].color} p-[1px]`}
+                      >
                         <div className="w-full h-full bg-navy-900 rounded-xl flex items-center justify-center">
-                          {React.createElement(services[activeService].icon, { size: 22, className: "text-white" })}
+                          {React.createElement(services[activeService].icon, {
+                            size: 22,
+                            className: "text-white",
+                          })}
                         </div>
                       </div>
                       <div>
@@ -232,7 +250,9 @@ const HeroCommandCenter = () => {
                     <div className="flex flex-wrap gap-2">
                       <div className="flex items-center gap-1.5 px-2.5 py-1 bg-white/5 rounded-md border border-white/10">
                         <Zap size={12} className="text-primary-400" />
-                        <span className="text-xs text-white">{services[activeService].stats}</span>
+                        <span className="text-xs text-white">
+                          {services[activeService].stats}
+                        </span>
                       </div>
                       <div className="flex items-center gap-1.5 px-2.5 py-1 bg-white/5 rounded-md border border-white/10">
                         <Globe size={12} className="text-blue-400" />
@@ -251,7 +271,10 @@ const HeroCommandCenter = () => {
                         className={`group px-4 py-2 rounded-lg font-semibold text-sm text-white flex items-center gap-2 bg-gradient-to-r ${services[activeService].color} shadow-lg hover:shadow-xl transition-all`}
                       >
                         Explore
-                        <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight
+                          size={14}
+                          className="group-hover:translate-x-1 transition-transform"
+                        />
                       </Link>
                       <Link
                         to="/contact"
@@ -284,7 +307,9 @@ const HeroCommandCenter = () => {
                             />
                           )}
                           <div className="relative z-10">
-                            <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center mb-2`}>
+                            <div
+                              className={`w-8 h-8 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center mb-2`}
+                            >
                               <service.icon size={14} className="text-white" />
                             </div>
                             <h3 className="font-semibold text-white text-xs mb-0.5">
@@ -303,12 +328,21 @@ const HeroCommandCenter = () => {
                 {/* Progress Bar */}
                 <div className="flex gap-0.5 px-4 pb-3 md:px-6 md:pb-4">
                   {services.map((_, index) => (
-                    <div key={index} className="flex-1 h-0.5 rounded-full bg-white/10 overflow-hidden">
+                    <div
+                      key={index}
+                      className="flex-1 h-0.5 rounded-full bg-white/10 overflow-hidden"
+                    >
                       <motion.div
                         className={`h-full bg-gradient-to-r ${services[index].color}`}
                         initial={{ width: "0%" }}
-                        animate={{ width: activeService === index ? "100%" : "0%" }}
-                        transition={{ duration: activeService === index && isAutoPlaying ? 4 : 0.3, ease: "linear" }}
+                        animate={{
+                          width: activeService === index ? "100%" : "0%",
+                        }}
+                        transition={{
+                          duration:
+                            activeService === index && isAutoPlaying ? 4 : 0.3,
+                          ease: "linear",
+                        }}
                       />
                     </div>
                   ))}
@@ -316,28 +350,6 @@ const HeroCommandCenter = () => {
               </div>
             </motion.div>
           </AnimatePresence>
-        </motion.div>
-
-        {/* Bottom Stats - Inline */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-wrap justify-center gap-6 md:gap-10 mt-6"
-        >
-          {[
-            { value: "500+", label: "Projects" },
-            { value: "50+", label: "Clients" },
-            { value: "99.9%", label: "Satisfaction" },
-            { value: "24/7", label: "Support" },
-          ].map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400">
-                {stat.value}
-              </div>
-              <div className="text-[10px] md:text-xs text-slate-500">{stat.label}</div>
-            </div>
-          ))}
         </motion.div>
       </div>
     </section>

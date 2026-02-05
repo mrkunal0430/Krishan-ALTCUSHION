@@ -24,7 +24,7 @@ const ImprovementPipeline = () => {
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
             Built to Solve What <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
               Traditional Consulting Can't
             </span>
           </h2>

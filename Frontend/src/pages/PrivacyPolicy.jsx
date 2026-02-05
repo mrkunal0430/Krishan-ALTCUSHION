@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
   }, []);
 
   return (
-    <div className="pt-20 min-h-screen">
+    <div className="pt-24 md:pt-28 lg:pt-32 min-h-screen">
       {/* Hero Section */}
       <SectionWrapper background="transparent">
         <motion.div
@@ -17,9 +17,9 @@ const PrivacyPolicy = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center max-w-4xl mx-auto mb-16"
         >
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-sm mb-6">
-            <Shield size={14} />
-            <span className="uppercase tracking-wider font-bold">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-6">
+            <Shield className="w-4 h-4 text-primary-500" />
+            <span className="text-sm text-primary-400 font-medium">
               Trust & Transparency
             </span>
           </div>

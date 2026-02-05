@@ -43,7 +43,7 @@ const GrowthEngine = () => {
         
         <div className="mb-16">
           <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
-            The 360 Kavach <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Growth Engine</span>
+            The 360 Kavach <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">Growth Engine</span>
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
             A cohesive ecosystem of four critical modules powering business performance.

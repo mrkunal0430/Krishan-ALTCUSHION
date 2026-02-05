@@ -941,7 +941,7 @@ const TrainingDetail = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Header */}
-      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-gradient-to-b from-navy-900/50 to-navy-950">
+      <section className="relative pt-24 pb-16 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24 overflow-hidden bg-gradient-to-b from-navy-900/50 to-navy-950">
         {/* Ambient Background */}
         <div
           className={`absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-b ${course.color} opacity-10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none`}
@@ -1103,13 +1103,13 @@ const TrainingDetail = () => {
                     />
 
                     {/* Floating Info Overlay */}
-                    <div className="absolute bottom-4 left-4 right-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
+                    <div className="absolute bottom-4 left-4 right-4 bg-primary-500/10 backdrop-blur-xl border border-primary-500/20 rounded-xl p-4">
                       <div className="flex items-center justify-between">
                         <div>
-                          <div className="text-xs text-slate-300 mb-1">
+                          <div className="text-xs text-primary-400/80 mb-1">
                             Enterprise-Grade Training
                           </div>
-                          <div className="text-white font-bold">
+                          <div className="text-primary-300 font-bold">
                             {course.shortTitle}
                           </div>
                         </div>

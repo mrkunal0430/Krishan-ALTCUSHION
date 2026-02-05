@@ -101,10 +101,13 @@ const Footer = () => {
                 </span>
               </li>
               <li className="flex items-start">
-                <div className="mr-3 mt-1 shrink-0 w-[18px]" />
+                <MapPin
+                  className="text-primary-500 mt-1 mr-3 shrink-0"
+                  size={18}
+                />
                 <span className="text-slate-400 text-sm">
                   <strong className="text-white block">Innovation Hub</strong>
-                  Delhi - India
+                  New Delhi - India
                 </span>
               </li>
               <li className="flex items-center">

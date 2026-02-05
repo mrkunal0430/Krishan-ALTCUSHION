@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
 @theme {
   --color-navy-950: #020c1b;
@@ -15,9 +15,10 @@
 
   --color-primary-500: #64ffda;
   --color-primary-400: #5ce6c4;
+  --color-primary-300: #9efff0;
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-slow: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -90,8 +91,9 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
 }
 
 .glass-panel {
@@ -113,7 +115,7 @@ h6 {
 }
 
 .text-gradient-primary {
-  background: linear-gradient(135deg, #64ffda 0%, #2dd4bf 100%);
+  background: linear-gradient(to right, #64ffda, #9efff0, #ffffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

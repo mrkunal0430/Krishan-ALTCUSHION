@@ -67,14 +67,14 @@ const CaseStudyEngine = ({ selectedIndustry = "All" }) => {
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-10 md:mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-md mb-4">
-              <BarChart2 size={14} className="text-blue-400" />
-              <span className="text-blue-400 text-xs font-mono uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-4">
+              <BarChart2 className="w-4 h-4 text-primary-500" />
+              <span className="text-sm text-primary-400 font-medium">
                 Impact Analytics
               </span>
             </div>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
-              Engineered <span className="text-blue-500">Outcomes</span>
+              Engineered <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">Success</span>
             </h2>
           </div>
 

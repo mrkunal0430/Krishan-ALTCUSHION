@@ -42,20 +42,20 @@ const TrustSystem = () => {
           {/* Left: Trust Text */}
           <div>
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 backdrop-blur-md mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-6"
             >
-              <Shield size={14} className="text-green-400" />
-              <span className="text-green-400 text-xs font-mono uppercase tracking-widest">
+              <Shield className="w-4 h-4 text-primary-500" />
+              <span className="text-sm text-primary-400 font-medium">
                 Trust Protocol: ACTIVE
               </span>
             </motion.div>
 
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 leading-tight">
               Engineered for <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
                 Uncompromising Trust
               </span>
             </h2>

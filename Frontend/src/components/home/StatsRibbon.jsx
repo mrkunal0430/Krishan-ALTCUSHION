@@ -1,43 +1,42 @@
-import React from 'react';
-import { motion as Motion } from 'framer-motion';
+import React from "react";
+import { motion as Motion } from "framer-motion";
 
-const stats = [
-  "Zero Trust Architecture",
-  "AI-Driven Threat Detection",
-  "Global Compliance Ready",
-  "24/7 Security Operations",
-  "Enterprise Scalability",
-  "Cloud Native Engineering",
-  "Bank-Grade Encryption",
-  "Rapid Incident Response"
+const items = [
+  "Cyber Security",
+  "24/7 SOC",
+  "AI Automation",
+  "Web Development",
+  "ERP Solutions",
+  "IT Consulting",
+  "Compliance",
+  "Business Consulting",
 ];
 
 const StatsRibbon = () => {
   return (
-    <div className="w-full bg-navy-950 border-y border-white/5 overflow-hidden py-6 relative z-10">
-      
-      {/* Gradient Fade Edges */}
-      <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-navy-950 to-transparent z-10" />
-      <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-navy-950 to-transparent z-10" />
+    <div className="w-full bg-navy-900 border-y border-white/5 py-4 overflow-hidden">
+      {/* Fade edges */}
+      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-navy-900 to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-navy-900 to-transparent z-10 pointer-events-none" />
 
       <div className="flex">
-        <Motion.div 
-          initial={{ x: 0 }}
-          animate={{ x: "-50%" }}
-          transition={{ 
-            duration: 30, 
-            repeat: Infinity, 
-            ease: "linear" 
+        <Motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            x: {
+              duration: 25,
+              repeat: Infinity,
+              ease: "linear",
+            },
           }}
-          className="flex whitespace-nowrap"
+          className="flex shrink-0"
         >
-          {/* Double the list for seamless marquee loop */}
-          {[...stats, ...stats].map((item, index) => (
-            <div key={index} className="flex items-center mx-8">
-               <div className="w-1.5 h-1.5 rounded-full bg-primary-500 mr-4 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
-               <span className="text-sm md:text-base font-mono text-slate-400 font-bold uppercase tracking-wider">
-                 {item}
-               </span>
+          {[...items, ...items].map((item, index) => (
+            <div key={index} className="flex items-center shrink-0 mx-8">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary-500 mr-3" />
+              <span className="text-sm text-slate-300 font-medium whitespace-nowrap">
+                {item}
+              </span>
             </div>
           ))}
         </Motion.div>

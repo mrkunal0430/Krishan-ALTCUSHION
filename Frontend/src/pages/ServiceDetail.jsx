@@ -27,9 +27,9 @@ const ServiceDetail = () => {
   }
 
   return (
-    <div className=" min-h-screen">
+    <div className="min-h-screen">
       {/* Hero Header */}
-      <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-b from-navy-900/50 to-navy-950">
+      <section className="relative pt-24 pb-16 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24 overflow-hidden bg-gradient-to-b from-navy-900/50 to-navy-950">
         {/* Ambient Background */}
         <div
           className={`absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-b ${service.color} opacity-10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none`}

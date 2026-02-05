@@ -675,7 +675,7 @@ const Training = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+      <section className="relative pt-24 pb-16 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24 overflow-hidden">
         {/* Ambient Background Effects */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-b from-primary-500/10 to-transparent opacity-50 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-t from-purple-500/10 to-transparent opacity-30 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/3 pointer-events-none" />
@@ -778,10 +778,10 @@ const Training = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-4"
           >
             <Zap className="w-4 h-4 text-primary-500" />
-            <span className="text-sm text-slate-300">
+            <span className="text-sm text-primary-400 font-medium">
               Specialized Training Programs
             </span>
           </Motion.div>

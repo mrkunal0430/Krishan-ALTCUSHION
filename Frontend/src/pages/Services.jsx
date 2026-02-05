@@ -23,12 +23,6 @@ const EnterpriseServices = () => {
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-6">
             <div>
-              <div className="flex items-center space-x-2 text-primary-400 mb-3 md:mb-4">
-                <Terminal size={16} className="md:w-[18px] md:h-[18px]" />
-                <span className="font-mono text-xs md:text-sm tracking-wider uppercase">
-                  System Capabilities
-                </span>
-              </div>
               <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
                 Service Capabilities
               </h2>
@@ -69,16 +63,10 @@ const EnterpriseServices = () => {
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-50" />
 
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-6 md:mb-8 text-white">
-                Ready to Upgrade Your <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-blue-400 block md:inline mt-2 md:mt-0">
-                  Digital Infrastructure?
-                </span>
+              <h2 className="text-3xl md:text-5xl lg:text-4xl font-display font-bold mb-6 md:mb-8 text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
+                Ready to Upgrade Your Digital Infrastructure?
               </h2>
-              <p className="text-lg md:text-xl text-slate-300 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed">
-                Start with a comprehensive audit. We identify risks and
-                opportunities before you commit to a single module.
-              </p>
+
               <div className="flex justify-center">
                 <Button
                   to="/contact"
@@ -173,7 +161,7 @@ const ServiceRow = ({ service, index }) => {
               className="w-full md:w-auto overflow-hidden relative inline-flex items-center justify-center px-6 py-3 md:py-2.5 rounded-lg bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all group/btn"
             >
               <span className="relative z-10 flex items-center text-sm md:text-base">
-                Configure
+                Explore
                 <ArrowRight
                   size={16}
                   className="ml-2 group-hover/btn:translate-x-1 transition-transform"

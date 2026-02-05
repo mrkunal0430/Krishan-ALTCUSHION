@@ -73,7 +73,7 @@ const Newsletter = () => {
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 leading-tight">
                 Subscribe to Our{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-cyan-400">Newsletter</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">Newsletter</span>
               </h2>
 
               <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">

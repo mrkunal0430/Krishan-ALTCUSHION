@@ -1,7 +1,57 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  ShieldAlert,
+  Code2,
+  Eye,
+  Lock,
+  Network,
+  Siren,
+  Cloud,
+  Server,
+  Zap,
+  Search,
+  Bug,
+  Globe,
+  TrendingUp,
+  Settings,
+  Users,
+  Cpu,
+  BookOpen,
+  BarChart3,
+  Stethoscope,
+  Map,
+  ShieldCheck,
+  AlertTriangle,
+  FileText,
+  Award,
+  Layers,
+  Terminal,
+  Smartphone,
+  Monitor,
+  Tablet,
+  ShoppingBag,
+  Calculator,
+  Package,
+  UserCheck,
+  Heart,
+  Truck,
+  PieChart,
+  MoveUp,
+  Wrench,
+  RefreshCw,
+  User,
+  RotateCcw,
+  DollarSign,
+  MessageSquare,
+  Activity,
+  LineChart,
+  Bot,
+  ClipboardList,
+  Camera,
+} from "lucide-react";
 import SectionWrapper from "../ui/SectionWrapper";
 import { servicesData } from "../../data/services";
 
@@ -14,268 +64,356 @@ const services = servicesData.map((service) => ({
       ? [
           {
             title: "VAPT Services",
+            icon: ShieldAlert,
             description:
               "Vulnerability Assessment & Penetration Testing to identify security gaps proactively",
           },
           {
             title: "API Security",
+            icon: Code2,
             description:
               "API security safeguards endpoints using secure authentication, rate limiting, and encryption.",
           },
           {
             title: "24/7 SOC Monitoring",
+            icon: Eye,
             description:
               "Security Operations Center with round-the-clock threat surveillance and incident response",
           },
           {
             title: "Zero Trust Architecture",
+            icon: Lock,
             description:
               "Never trust, always verify - comprehensive access control for every network request",
           },
           {
             title: "Virtual Cisco",
+            icon: Network,
             description:
               "Virtual Cisco provides a virtualized Cisco networking environment for testing and training without physical hardware.",
           },
           {
             title: "Incident Response Plan",
+            icon: Siren,
             description:
               "Rapid containment and forensic analysis with automated threat mitigation",
           },
         ]
-      : service.id === "business-consulting"
+      : service.id === "managed-detection-response"
         ? [
             {
-              title: "Strategic Planning",
+              title: "Cloud Native SOC",
+              icon: Cloud,
               description:
-                "Market analysis and growth roadmaps tailored to your business objectives",
+                "Scalable cloud-based Security Operations Center with real-time monitoring and alerting",
             },
             {
-              title: "Process Optimization",
+              title: "On-Prem SOC",
+              icon: Server,
               description:
-                "Streamline operations and eliminate redundancies for improved efficiency",
+                "Dedicated on-premises SOC solutions for organizations with strict data residency requirements",
             },
             {
-              title: "Leadership Training",
+              title: "Incident Response",
+              icon: Zap,
               description:
-                "Executive coaching and C-suite development programs for strategic decision-making",
+                "Rapid incident containment, threat neutralization, and recovery procedures",
             },
             {
-              title: "Digital Transformation",
+              title: "Digital Forensics",
+              icon: Search,
               description:
-                "Technology adoption strategies with change management and team readiness",
+                "Comprehensive forensic analysis for incident investigation and legal proceedings",
             },
             {
-              title: "Workforce Upskilling",
+              title: "Malware Analysis",
+              icon: Bug,
               description:
-                "Corporate training programs in cybersecurity, software, and professional skills",
+                "Reverse engineering and behavior analysis of malicious code and exploits",
             },
             {
-              title: "KPI Frameworks",
+              title: "Dark Web Monitoring",
+              icon: Globe,
               description:
-                "Design and implement measurable performance indicators aligned with business goals",
+                "Proactive monitoring for leaked credentials, data breaches, and threat intelligence",
             },
           ]
-        : service.id === "governance-compliance"
+        : service.id === "business-consulting"
           ? [
               {
-                title: "HIPAA Compliance",
+                title: "Strategic Planning",
+                icon: TrendingUp,
                 description:
-                  "Healthcare data protection and privacy compliance for medical organizations",
+                  "Market analysis and growth roadmaps tailored to your business objectives",
               },
               {
-                title: "GDPR Framework",
+                title: "Process Optimization",
+                icon: Settings,
                 description:
-                  "European data privacy regulation compliance for global data handling",
+                  "Streamline operations and eliminate redundancies for improved efficiency",
               },
               {
-                title: "ISO Certification",
+                title: "Leadership Training",
+                icon: Users,
                 description:
-                  "ISO 27001, 9001, and other international standards implementation support",
+                  "Executive coaching and C-suite development programs for strategic decision-making",
               },
               {
-                title: "Risk Management",
+                title: "Digital Transformation",
+                icon: Cpu,
                 description:
-                  "Enterprise risk assessment, mitigation strategies, and continuous monitoring",
+                  "Technology adoption strategies with change management and team readiness",
               },
               {
-                title: "Audit Preparation",
+                title: "Workforce Upskilling",
+                icon: BookOpen,
                 description:
-                  "Mock audits, documentation organization, and evidence management systems",
+                  "Corporate training programs in cybersecurity, software, and professional skills",
               },
               {
-                title: "DPDP Compliance",
+                title: "KPI Frameworks",
+                icon: BarChart3,
                 description:
-                  "Personal data protection, consent management, data processing controls, and regulatory compliance",
+                  "Design and implement measurable performance indicators aligned with business goals",
               },
             ]
-          : service.id === "web-app-development"
+          : service.id === "governance-compliance"
             ? [
                 {
-                  title: "SaaS Platforms",
+                  title: "HIPAA Compliance",
+                  icon: Stethoscope,
                   description:
-                    "Scalable software-as-a-service solutions with subscription and billing integration",
+                    "Healthcare data protection and privacy compliance for medical organizations",
                 },
                 {
-                  title: "API Development",
+                  title: "GDPR Framework",
+                  icon: Map,
                   description:
-                    "RESTful and GraphQL APIs with headless CMS integration for flexible content",
-                },
-
-                {
-                  title: "Native Mobile Apps",
-                  description:
-                    "iOS and Android applications with native performance and user experience",
+                    "European data privacy regulation compliance for global data handling",
                 },
                 {
-                  title: "Responsive Web Design",
+                  title: "DPDP Compliance",
+                  icon: ShieldCheck,
                   description:
-                    "Mobile-first, pixel-perfect websites optimized for all devices and screen sizes",
-                },
-                {
-                  title: "Cross-Platform Solutions",
-                  description:
-                    "Flutter and React Native apps that run seamlessly on multiple platforms",
+                    "Personal data protection, consent management, data processing controls, and regulatory compliance",
                 },
 
                 {
-                  title: "E-commerce Systems",
+                  title: "Risk Management",
+                  icon: AlertTriangle,
                   description:
-                    "Full-featured online stores with payment gateways and inventory management",
+                    "Enterprise risk assessment, mitigation strategies, and continuous monitoring",
+                },
+                {
+                  title: "Audit Preparation",
+                  icon: FileText,
+                  description:
+                    "Mock audits, documentation organization, and evidence management systems",
+                },
+                {
+                  title: "ISO Certification",
+                  icon: Award,
+                  description:
+                    "ISO 27001, 9001, and other international standards implementation support",
                 },
               ]
-            : service.id === "erp-solutions"
+            : service.id === "web-app-development"
               ? [
                   {
-                    title: "Finance & Accounting",
+                    title: "SaaS Platforms",
+                    icon: Layers,
                     description:
-                      "Automated financial reporting, multi-currency support, and tax compliance management",
+                      "Scalable software-as-a-service solutions with subscription and billing integration",
                   },
                   {
-                    title: "Inventory Control",
+                    title: "API Development",
+                    icon: Terminal,
                     description:
-                      "Real-time stock tracking, warehouse management, and demand forecasting",
+                      "RESTful and GraphQL APIs with headless CMS integration for flexible content",
+                  },
+
+                  {
+                    title: "Native Mobile Apps",
+                    icon: Smartphone,
+                    description:
+                      "iOS and Android applications with native performance and user experience",
                   },
                   {
-                    title: "HR & Payroll",
+                    title: "Responsive Web Design",
+                    icon: Monitor,
                     description:
-                      "Employee management, attendance tracking, payroll processing, and benefit administration",
+                      "Mobile-first, pixel-perfect websites optimized for all devices and screen sizes",
                   },
                   {
-                    title: "CRM Integration",
+                    title: "Cross-Platform Solutions",
+                    icon: Tablet,
                     description:
-                      "Customer relationship management with sales pipeline and marketing automation",
+                      "Flutter and React Native apps that run seamlessly on multiple platforms",
                   },
+
                   {
-                    title: "Supply Chain",
+                    title: "E-commerce Systems",
+                    icon: ShoppingBag,
                     description:
-                      "End-to-end procurement, vendor management, and logistics tracking",
-                  },
-                  {
-                    title: "Business Intelligence",
-                    description:
-                      "Interactive dashboards with real-time analytics for data-driven decision making",
+                      "Full-featured online stores with payment gateways and inventory management",
                   },
                 ]
-              : service.id === "it-consulting"
+              : service.id === "erp-solutions"
                 ? [
                     {
-                      title: "Cloud Migration",
+                      title: "Finance & Accounting",
+                      icon: Calculator,
                       description:
-                        "Seamless transition to AWS, Azure, or GCP with zero downtime and data integrity",
+                        "Automated financial reporting, multi-currency support, and tax compliance management",
                     },
                     {
-                      title: "Infrastructure as Code",
+                      title: "Inventory Control",
+                      icon: Package,
                       description:
-                        "Automated infrastructure provisioning using Terraform and modern DevOps practices",
+                        "Real-time stock tracking, warehouse management, and demand forecasting",
                     },
                     {
-                      title: "Legacy Modernization",
+                      title: "HR & Payroll",
+                      icon: UserCheck,
                       description:
-                        "Transform outdated systems into cloud-native, scalable microservices architecture",
+                        "Employee management, attendance tracking, payroll processing, and benefit administration",
                     },
                     {
-                      title: "Fractional CTO/CIO",
+                      title: "CRM Integration",
+                      icon: Heart,
                       description:
-                        "Expert technology leadership on-demand without full-time executive overhead",
+                        "Customer relationship management with sales pipeline and marketing automation",
                     },
                     {
-                      title: "Disaster Recovery",
+                      title: "Supply Chain",
+                      icon: Truck,
                       description:
-                        "Business continuity planning with automated backup and failover systems",
+                        "End-to-end procurement, vendor management, and logistics tracking",
                     },
-
                     {
-                      title: "Cost Optimization",
+                      title: "Business Intelligence",
+                      icon: PieChart,
                       description:
-                        "IT spend analysis, license management, and resource allocation for maximum ROI",
+                        "Interactive dashboards with real-time analytics for data-driven decision making",
                     },
                   ]
-                : service.id === "ai-automation"
+                : service.id === "it-consulting"
                   ? [
                       {
-                        title: "Intelligent Chatbots",
+                        title: "Cloud Migration",
+                        icon: MoveUp,
                         description:
-                          "AI-powered customer support with natural language understanding and 24/7 availability",
+                          "Seamless transition to AWS, Azure, or GCP with zero downtime and data integrity",
                       },
                       {
-                        title: "Process Automation",
+                        title: "Infrastructure as Code",
+                        icon: Wrench,
                         description:
-                          "RPA for repetitive tasks in finance, HR, and operations to reduce manual work",
+                          "Automated infrastructure provisioning using Terraform and modern DevOps practices",
                       },
                       {
-                        title: "Predictive Analytics",
+                        title: "Legacy Modernization",
+                        icon: RefreshCw,
                         description:
-                          "Machine learning models for sales forecasting, demand planning, and trend analysis",
+                          "Transform outdated systems into cloud-native, scalable microservices architecture",
                       },
                       {
-                        title: "Custom AI Agents",
+                        title: "Fractional CTO/CIO",
+                        icon: User,
                         description:
-                          "Specialized LLM-based agents for lead generation, data entry, and customer engagement",
+                          "Expert technology leadership on-demand without full-time executive overhead",
                       },
                       {
-                        title: "Document Processing",
+                        title: "Disaster Recovery",
+                        icon: RotateCcw,
                         description:
-                          "Automated extraction and classification of information from invoices and contracts",
+                          "Business continuity planning with automated backup and failover systems",
                       },
+
                       {
-                        title: "Computer Vision",
+                        title: "Cost Optimization",
+                        icon: DollarSign,
                         description:
-                          "Image recognition and video analysis for quality control and security monitoring",
+                          "IT spend analysis, license management, and resource allocation for maximum ROI",
                       },
                     ]
-                  : [
-                      {
-                        title: "Premium Service",
-                        description:
-                          "High-quality solutions tailored to your specific business requirements",
-                      },
-                      {
-                        title: "Expert Team",
-                        description:
-                          "Experienced professionals with deep industry knowledge and technical expertise",
-                      },
-                      {
-                        title: "24/7 Support",
-                        description:
-                          "Round-the-clock assistance and monitoring for uninterrupted operations",
-                      },
-                      {
-                        title: "Scalable Solutions",
-                        description:
-                          "Architecture designed to grow seamlessly with your business expansion",
-                      },
-                      {
-                        title: "Security First",
-                        description:
-                          "Enterprise-grade security measures integrated from the ground up",
-                      },
-                      {
-                        title: "Proven Results",
-                        description:
-                          "Track record of successful implementations and satisfied clients",
-                      },
-                    ],
+                  : service.id === "ai-automation"
+                    ? [
+                        {
+                          title: "Intelligent Chatbots",
+                          icon: MessageSquare,
+                          description:
+                            "AI-powered customer support with natural language understanding and 24/7 availability",
+                        },
+                        {
+                          title: "Process Automation",
+                          icon: Activity,
+                          description:
+                            "RPA for repetitive tasks in finance, HR, and operations to reduce manual work",
+                        },
+                        {
+                          title: "Predictive Analytics",
+                          icon: LineChart,
+                          description:
+                            "Machine learning models for sales forecasting, demand planning, and trend analysis",
+                        },
+                        {
+                          title: "Custom AI Agents",
+                          icon: Bot,
+                          description:
+                            "Specialized LLM-based agents for lead generation, data entry, and customer engagement",
+                        },
+                        {
+                          title: "Document Processing",
+                          icon: ClipboardList,
+                          description:
+                            "Automated extraction and classification of information from invoices and contracts",
+                        },
+                        {
+                          title: "Computer Vision",
+                          icon: Camera,
+                          description:
+                            "Image recognition and video analysis for quality control and security monitoring",
+                        },
+                      ]
+                    : [
+                        {
+                          title: "Premium Service",
+                          icon: Award,
+                          description:
+                            "High-quality solutions tailored to your specific business requirements",
+                        },
+                        {
+                          title: "Expert Team",
+                          icon: Users,
+                          description:
+                            "Experienced professionals with deep industry knowledge and technical expertise",
+                        },
+                        {
+                          title: "24/7 Support",
+                          icon: Eye,
+                          description:
+                            "Round-the-clock assistance and monitoring for uninterrupted operations",
+                        },
+                        {
+                          title: "Scalable Solutions",
+                          icon: Layers,
+                          description:
+                            "Architecture designed to grow seamlessly with your business expansion",
+                        },
+                        {
+                          title: "Cloud Ready",
+                          icon: Cloud,
+                          description:
+                            "Modern cloud-native approaches for maximum flexibility and performance",
+                        },
+                        {
+                          title: "Secure by Design",
+                          icon: Lock,
+                          description:
+                            "Security-first methodology integrated throughout the entire lifecycle",
+                        },
+                      ],
   description:
     service.shortDescription ||
     service.fullDescription.substring(0, 150) + "...",
@@ -303,16 +441,17 @@ const ServiceConsole = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-3 py-1 mb-4 border border-orange-500/30 rounded-full bg-orange-500/10 backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-8"
           >
-            <span className="text-orange-400 text-xs font-mono tracking-widest uppercase">
+            <Zap className="w-4 h-4 text-primary-500" />
+            <span className="text-sm text-primary-400 font-medium">
               System Capabilities
             </span>
           </motion.div>
 
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
             Service{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
               Console
             </span>
           </h2>
@@ -402,7 +541,7 @@ const ServiceConsole = () => {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.08 }}
-                            className="group relative bg-gradient-to-br from-navy-800/80 to-navy-900/80 border border-white/10 rounded-xl p-5 hover:border-orange-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/10"
+                            className="group relative bg-gradient-to-br from-navy-800/80 to-navy-900/80 border border-white/10 rounded-xl p-5 hover:border-primary-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10"
                           >
                             {/* Hover Effect */}
                             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
@@ -410,8 +549,15 @@ const ServiceConsole = () => {
                             {/* Content */}
                             <div className="relative z-10">
                               <div className="flex items-start justify-between mb-3">
-                                <div className="p-2 bg-white/5 rounded-lg group-hover:bg-orange-500/10 transition-colors">
-                                  <Zap size={16} className="text-orange-400" />
+                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-500/50 to-primary-300/50 p-0.5 transition-all duration-300 group-hover:from-primary-500 group-hover:to-primary-300">
+                                  <div className="w-full h-full bg-navy-900 rounded-[7px] flex items-center justify-center">
+                                    {card.icon && (
+                                      <card.icon
+                                        size={18}
+                                        className="text-primary-400 group-hover:text-white transition-colors"
+                                      />
+                                    )}
+                                  </div>
                                 </div>
                                 <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wide">
                                   Feature
@@ -433,7 +579,7 @@ const ServiceConsole = () => {
                     <div className="pt-4 border-t border-white/5 mt-4">
                       <Link
                         to={`/services/${activeService.id}`}
-                        className="group inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg text-white font-bold hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300 hover:scale-[1.02]"
+                        className="group inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-400 rounded-lg text-white font-bold hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300 hover:scale-[1.02]"
                       >
                         <span>Explore Full Details</span>
                         <ArrowRight
@@ -533,8 +679,13 @@ const ServiceConsole = () => {
                             className="bg-gradient-to-br from-navy-800/60 to-navy-900/60 p-4 rounded-lg border border-white/5"
                           >
                             <div className="flex items-start space-x-3">
-                              <div className="p-2 bg-orange-500/10 rounded-lg flex-shrink-0">
-                                <Zap size={14} className="text-orange-400" />
+                              <div className="p-2 bg-primary-500/10 rounded-lg flex-shrink-0">
+                                {card.icon && (
+                                  <card.icon
+                                    size={14}
+                                    className="text-primary-400"
+                                  />
+                                )}
                               </div>
                               <div className="flex-1">
                                 <h4 className="text-sm font-bold text-white mb-1">
