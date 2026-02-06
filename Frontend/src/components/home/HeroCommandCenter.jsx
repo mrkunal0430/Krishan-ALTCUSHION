@@ -101,8 +101,12 @@ const ServiceNode = React.memo(
   }) => {
     const Icon = service.icon;
     const nodeSize =
-      size === "small" ? "w-11 h-11" : "w-14 h-14 sm:w-16 sm:h-16";
-    const iconSize = size === "small" ? 16 : 22;
+      size === "small"
+        ? "w-11 h-11"
+        : size === "medium"
+          ? "w-12 h-12"
+          : "w-14 h-14 sm:w-16 sm:h-16";
+    const iconSize = size === "small" ? 16 : size === "medium" ? 18 : 22;
 
     return (
       <div
@@ -200,8 +204,12 @@ const CenterHub = React.memo(
     const service = services[currentService];
     const Icon = service.icon;
     const hubSize =
-      size === "small" ? "w-20 h-20" : "w-32 h-32 sm:w-36 sm:h-36";
-    const iconSize = size === "small" ? 22 : 28;
+      size === "small"
+        ? "w-20 h-20"
+        : size === "medium"
+          ? "w-24 h-24"
+          : "w-32 h-32 sm:w-36 sm:h-36";
+    const iconSize = size === "small" ? 22 : size === "medium" ? 24 : 28;
 
     return (
       <div className="relative z-20">
@@ -382,9 +390,17 @@ const ServiceHub = ({
   svgSize,
 }) => {
   const ringSize1 =
-    size === "small" ? "w-[260px] h-[260px]" : "w-[420px] h-[420px]";
+    size === "small"
+      ? "w-[260px] h-[260px]"
+      : size === "medium"
+        ? "w-[300px] h-[300px]"
+        : "w-[420px] h-[420px]";
   const ringSize2 =
-    size === "small" ? "w-[200px] h-[200px]" : "w-[340px] h-[340px]";
+    size === "small"
+      ? "w-[200px] h-[200px]"
+      : size === "medium"
+        ? "w-[240px] h-[240px]"
+        : "w-[340px] h-[340px]";
 
   return (
     <div className="relative w-full h-full flex items-center justify-center">
@@ -441,6 +457,10 @@ const HeroCommandCenter = () => {
     () => calculatePositions(services.length, 100),
     [],
   );
+  const tabletPositions = useMemo(
+    () => calculatePositions(services.length, 130),
+    [],
+  );
   const currentService = hoveredService ?? activeService;
 
   // Auto-rotate with pause on hover
@@ -463,7 +483,7 @@ const HeroCommandCenter = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28 lg:pt-12 pb-8">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-6 sm:pb-8 lg:pb-12">
       {/* Subtle grid background */}
       <div
         className="absolute inset-0 opacity-30"
@@ -474,18 +494,18 @@ const HeroCommandCenter = () => {
       />
 
       {/* Ambient glow */}
-      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-primary-500/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-[300px] md:w-[450px] lg:w-[600px] h-[300px] md:h-[450px] lg:h-[600px] bg-primary-500/5 rounded-full blur-[80px] lg:blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-[200px] md:w-[300px] lg:w-[400px] h-[200px] md:h-[300px] lg:h-[400px] bg-blue-500/5 rounded-full blur-[60px] lg:blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-12 items-center">
           {/* Left: Content */}
-          <div className="space-y-5 sm:space-y-8 text-center lg:text-left order-2 lg:order-1">
+          <div className="space-y-4 sm:space-y-5 lg:space-y-8 text-center md:text-left order-2 md:order-1">
             <Motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 border border-primary-500/20 rounded-full mx-auto lg:mx-0"
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-500/10 border border-primary-500/20 rounded-full mx-auto md:mx-0"
             >
               <Sparkles size={14} className="text-primary-400" />
               <span className="text-xs font-medium text-primary-400 tracking-wide uppercase">
@@ -497,13 +517,13 @@ const HeroCommandCenter = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-[1.4rem] sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-snug text-white"
+              className="text-2xl sm:text-3xl md:text-2xl lg:text-4xl xl:text-5xl font-bold leading-snug text-white"
             >
-              <span className="block sm:whitespace-nowrap">
+              <span className="block">
                 Technology is the tool
               </span>
-              <span className="block sm:whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white pb-1">
-                Business growth is the goal
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white pb-1">
+                Business growth it the ultimate goal
               </span>
             </Motion.h1>
 
@@ -511,7 +531,7 @@ const HeroCommandCenter = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
-              className="text-base sm:text-lg text-slate-400 max-w-xl leading-relaxed mx-auto lg:mx-0"
+              className="text-sm sm:text-base lg:text-lg text-slate-400 max-w-xl leading-relaxed mx-auto md:mx-0"
             >
               360 Kavach delivers end-to-end{" "}
               <span className="text-white font-medium">cybersecurity</span>,{" "}
@@ -526,7 +546,7 @@ const HeroCommandCenter = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start"
             >
               <Button
                 to="/contact"
@@ -547,7 +567,7 @@ const HeroCommandCenter = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative hidden lg:flex items-center justify-center h-[550px] order-1 lg:order-2"
+            className="relative hidden lg:flex items-center justify-center h-[550px] order-1 md:order-2"
           >
             <ServiceHub
               positions={desktopPositions}
@@ -592,12 +612,30 @@ const HeroCommandCenter = () => {
             </Motion.div>
           </Motion.div>
 
+          {/* Tablet: Interactive Service Hub (md to lg) */}
+          <Motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative hidden md:flex lg:hidden items-center justify-center h-[360px] order-1 md:order-2"
+          >
+            <ServiceHub
+              positions={tabletPositions}
+              currentService={currentService}
+              services={services}
+              onHover={handleHover}
+              onLeave={handleLeave}
+              size="medium"
+              svgSize={330}
+            />
+          </Motion.div>
+
           {/* Mobile: Interactive Service Hub */}
           <Motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:hidden order-1 h-[280px] relative"
+            className="md:hidden order-1 h-[260px] sm:h-[280px] relative"
           >
             <ServiceHub
               positions={mobilePositions}
@@ -616,7 +654,7 @@ const HeroCommandCenter = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="lg:hidden mt-2 flex justify-center"
+          className="md:hidden mt-4 flex justify-center"
         >
           <Link
             to={`/services/${services[activeService].slug}`}

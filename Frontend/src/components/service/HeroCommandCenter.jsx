@@ -161,7 +161,7 @@ const HeroCommandCenter = () => {
         >
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-snug mb-3">
             Transform Your Business With{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white pb-1">
               World-Class
             </span>{" "}
             Solutions

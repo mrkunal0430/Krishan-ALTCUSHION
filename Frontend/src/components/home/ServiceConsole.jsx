@@ -434,7 +434,7 @@ const ServiceConsole = () => {
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[120px]" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-3 sm:px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.div
@@ -598,14 +598,14 @@ const ServiceConsole = () => {
         </div>
 
         {/* --- MOBILE LAYOUT (Visible on mobile/tablet) --- */}
-        <div className="lg:hidden flex flex-col space-y-4">
+        <div className="lg:hidden flex flex-col space-y-3">
           {services.map((service) => (
             <motion.div
               key={service.id}
               className={`rounded-xl border overflow-hidden transition-all duration-300 ${
                 activeId === service.id
                   ? "bg-navy-900 border-primary-500/50 ring-1 ring-primary-500/20"
-                  : "bg-navy-900/30 border-white/5"
+                  : "bg-navy-900/90 border-white/5"
               }`}
             >
               {/* Accordion Header */}
@@ -613,7 +613,7 @@ const ServiceConsole = () => {
                 onClick={() =>
                   setActiveId(activeId === service.id ? null : service.id)
                 }
-                className="w-full flex items-center justify-between p-5 text-left"
+                className="w-full flex items-center justify-between p-3 sm:p-5 text-left"
               >
                 <div className="flex items-center space-x-4">
                   <div
@@ -673,14 +673,14 @@ const ServiceConsole = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="border-t border-white/5 p-5 bg-navy-950/30">
+                    <div className="border-t border-white/5 p-3 sm:p-5 bg-navy-950/30">
                       {/* Description */}
                       <p className="text-slate-400 text-sm leading-relaxed mb-6">
                         {service.description}
                       </p>
 
                       {/* Information Cards Grid */}
-                      <div className="grid grid-cols-1 gap-3 mb-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-6">
                         {service.infoCards?.map((card, i) => (
                           <div
                             key={i}
@@ -711,7 +711,7 @@ const ServiceConsole = () => {
                       {/* Mini Visual */}
                       <div className="h-32 mb-6 bg-navy-900/50 rounded-lg border border-white/5 relative overflow-hidden flex items-center justify-center">
                         <img
-                          src={service.image}
+                          src={service.img}
                           alt={service.title}
                           className="absolute inset-0 w-full h-full object-cover opacity-80"
                         />
@@ -772,7 +772,10 @@ const ServiceModule = ({ service, isActive, onClick }) => {
                 <service.icon size={18} className="text-white" />
               </div>
             ) : (
-              <service.icon size={20} className="text-slate-400 group-hover:text-white" />
+              <service.icon
+                size={20}
+                className="text-slate-400 group-hover:text-white"
+              />
             )}
           </div>
           <div>

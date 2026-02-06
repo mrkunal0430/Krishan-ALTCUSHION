@@ -74,7 +74,7 @@ const CaseStudyEngine = ({ selectedIndustry = "All" }) => {
               </span>
             </div>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
-              Engineered <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">Success</span>
+              Engineered <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white pb-1">Success</span>
             </h2>
           </div>
 

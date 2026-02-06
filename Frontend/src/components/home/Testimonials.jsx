@@ -95,7 +95,7 @@ const Testimonials = () => {
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-tight">
-              We don't just build software. <br />
+              We don't just build tech solutions. <br />
               <span className="text-slate-500">We build legacies.</span>
             </h2>
 
@@ -237,7 +237,11 @@ const Card = ({ data }) => {
 
       <div className="flex space-x-0.5 opacity-50 group-hover:opacity-100 transition-opacity">
         {[...Array(5)].map((_, i) => (
-          <Star key={i} size={10} className="fill-primary-400 text-primary-400" />
+          <Star
+            key={i}
+            size={10}
+            className="fill-primary-400 text-primary-400"
+          />
         ))}
       </div>
     </div>

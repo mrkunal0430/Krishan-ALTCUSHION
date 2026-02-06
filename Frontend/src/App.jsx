@@ -26,6 +26,9 @@ const TrainingDetail = lazy(() => import("./pages/TrainingDetail"));
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 
+// 404
+const NotFound = lazy(() => import("./pages/NotFound"));
+
 // Layout wrapper component
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -72,6 +75,9 @@ const App = () => {
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
+
+          {/* 404 Catch-all */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </Router>
