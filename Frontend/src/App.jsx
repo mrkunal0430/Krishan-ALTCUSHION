@@ -11,8 +11,8 @@ import LeadForm from "./components/ui/LeadForm";
 import FuturisticGridBackground from "./components/ui/FuturisticGridBackground";
 import LoadingSpinner from "./components/ui/LoadingSpinner";
 
-// Lazy load pages for performance optimization
-const Home = lazy(() => import("./pages/Home"));
+// Home is eagerly loaded (entry point - avoids flash/flicker)
+import Home from "./pages/Home";
 const EnterpriseServices = lazy(() => import("./pages/Services"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));

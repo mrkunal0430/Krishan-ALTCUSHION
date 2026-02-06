@@ -38,7 +38,7 @@ const caseStudies = [
       { label: "Downtime", value: "0%", trend: "flat" },
     ],
     tags: ["Scalable Arch.", "UX/UI", "Automation"],
-    image: "bg-gradient-to-br from-orange-500 to-red-600",
+    image: "bg-gradient-to-br from-primary-500 to-cyan-600",
   },
   {
     id: 4,

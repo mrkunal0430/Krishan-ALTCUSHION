@@ -63,7 +63,7 @@ const EnterpriseServices = () => {
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-50" />
 
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl lg:text-4xl font-display font-bold mb-6 md:mb-8 text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
+              <h2 className="text-3xl md:text-5xl lg:text-4xl font-display font-bold mb-6 md:mb-8 text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white pb-1">
                 Ready to Upgrade Your Digital Infrastructure?
               </h2>
 

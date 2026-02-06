@@ -159,7 +159,7 @@ const HeroCommandCenter = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-6"
         >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight mb-3">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-snug mb-3">
             Transform Your Business With{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
               World-Class
@@ -227,9 +227,9 @@ const HeroCommandCenter = () => {
                   <div className="lg:col-span-2 space-y-4">
                     <div className="flex items-center gap-3">
                       <div
-                        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${services[activeService].color} p-[1px]`}
+                        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${services[activeService].color} p-0.5`}
                       >
-                        <div className="w-full h-full bg-navy-900 rounded-xl flex items-center justify-center">
+                        <div className="w-full h-full bg-navy-950 rounded-[10px] flex items-center justify-center">
                           {React.createElement(services[activeService].icon, {
                             size: 22,
                             className: "text-white",
@@ -308,9 +308,11 @@ const HeroCommandCenter = () => {
                           )}
                           <div className="relative z-10">
                             <div
-                              className={`w-8 h-8 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center mb-2`}
+                              className={`w-8 h-8 rounded-lg bg-gradient-to-br ${service.color} p-0.5 mb-2`}
                             >
-                              <service.icon size={14} className="text-white" />
+                              <div className="w-full h-full bg-navy-950 rounded-[6px] flex items-center justify-center">
+                                <service.icon size={14} className="text-white" />
+                              </div>
                             </div>
                             <h3 className="font-semibold text-white text-xs mb-0.5">
                               {service.shortTitle}

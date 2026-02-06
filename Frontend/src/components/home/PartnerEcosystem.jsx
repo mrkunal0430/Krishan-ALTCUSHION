@@ -69,9 +69,9 @@ const PartnerEcosystem = () => {
              viewport={{ once: true }}
              className="mb-10 text-left"
            >
-             <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">
+             <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 leading-snug">
                Powering the <br />
-               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
+               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white pb-1">
                  Next Generation
                </span>
              </h2>
@@ -220,7 +220,7 @@ const StatItem = ({ value, suffix, label }) => {
     <div ref={ref}>
       <div className="flex items-baseline text-2xl md:text-3xl font-display font-bold text-white mb-1">
         <motion.span>{rounded}</motion.span>
-        <span className="text-orange-500 text-lg ml-0.5">{suffix}</span>
+        <span className="text-primary-500 text-lg ml-0.5">{suffix}</span>
       </div>
       <div className="text-xs text-slate-500 font-bold uppercase tracking-wider">{label}</div>
     </div>

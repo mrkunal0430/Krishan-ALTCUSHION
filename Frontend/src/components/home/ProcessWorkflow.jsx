@@ -43,7 +43,7 @@ const ProcessWorkflow = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
             Our{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white pb-1">
               Workflow
             </span>
           </h2>
@@ -87,7 +87,7 @@ const StepCard = ({ step, isActive, onClick }) => {
       onClick={onClick}
       className={`relative p-6 rounded-xl cursor-pointer border transition-all duration-300 group overflow-hidden ${
         isActive
-          ? "bg-gradient-to-r from-orange-500/10 to-red-500/5 border-orange-500/50 shadow-[0_0_20px_rgba(249,115,22,0.15)]"
+          ? "bg-gradient-to-r from-primary-500/10 to-primary-300/5 border-primary-500/50 shadow-[0_0_20px_rgba(100,255,218,0.15)]"
           : "bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20"
       }`}
       whileHover={{ scale: 1.02 }}
@@ -100,14 +100,14 @@ const StepCard = ({ step, isActive, onClick }) => {
           animate={{ scaleY: 1 }}
           exit={{ scaleY: 0 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 to-red-600 shadow-[0_0_10px_2px_rgba(249,115,22,0.5)] origin-top"
+          className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-500 to-primary-300 shadow-[0_0_10px_2px_rgba(100,255,218,0.5)] origin-top"
         />
       )}
 
       <div className="flex items-center justify-between relative z-10">
         <div className="flex items-center space-x-4">
           <span
-            className={`text-sm font-mono font-bold ${isActive ? "text-orange-400" : "text-slate-500"}`}
+            className={`text-sm font-mono font-bold ${isActive ? "text-primary-400" : "text-slate-500"}`}
           >
             0{step.id}
           </span>
@@ -118,7 +118,7 @@ const StepCard = ({ step, isActive, onClick }) => {
           </h3>
         </div>
         <span
-          className={`text-xs uppercase tracking-wider ${isActive ? "text-red-400" : "text-slate-600"}`}
+          className={`text-xs uppercase tracking-wider ${isActive ? "text-primary-400" : "text-slate-600"}`}
         >
           Step {step.id} of 4
         </span>
@@ -137,14 +137,16 @@ const ContentPanel = ({ step }) => {
       className="relative w-full h-full bg-navy-900/60 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 md:p-12 flex flex-col justify-between overflow-hidden"
     >
       {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-orange-600/10 to-transparent rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-primary-500/10 to-transparent rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
 
       {/* Top Section */}
       <div className="relative z-10">
         <div className="flex justify-between items-start mb-8">
           {/* Icon Container */}
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white shadow-lg shadow-orange-500/20">
-            <step.icon size={32} />
+          <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary-500 to-primary-300 p-0.5 shadow-lg shadow-primary-500/20">
+            <div className="w-full h-full bg-navy-950 rounded-[10px] flex items-center justify-center">
+              <step.icon size={32} className="text-white" />
+            </div>
           </div>
 
           {/* Large Number */}
@@ -161,7 +163,7 @@ const ContentPanel = ({ step }) => {
           {step.description}
         </p>
 
-        <button className="group flex items-center space-x-2 text-orange-400 font-bold hover:text-orange-300 transition-colors">
+        <button className="group flex items-center space-x-2 text-primary-400 font-bold hover:text-primary-300 transition-colors">
           <span>Learn More</span>
           <ArrowRight
             size={18}
@@ -182,7 +184,7 @@ const ContentPanel = ({ step }) => {
               key={i}
               className={`h-full flex-1 rounded-full transition-all duration-500 ${
                 i <= step.id
-                  ? "bg-gradient-to-r from-orange-500 to-red-500"
+                  ? "bg-gradient-to-r from-primary-500 to-primary-300"
                   : "bg-transparent"
               }`}
             />

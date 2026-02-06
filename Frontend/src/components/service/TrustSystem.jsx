@@ -53,9 +53,9 @@ const TrustSystem = () => {
               </span>
             </motion.div>
 
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 leading-snug">
               Engineered for <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white pb-1">
                 Uncompromising Trust
               </span>
             </h2>

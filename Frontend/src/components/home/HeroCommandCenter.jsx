@@ -497,12 +497,12 @@ const HeroCommandCenter = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold leading-[1.2] text-white"
+              className="text-[1.4rem] sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-snug text-white"
             >
-              <span className="block whitespace-nowrap">
+              <span className="block sm:whitespace-nowrap">
                 Technology is the tool
               </span>
-              <span className="block whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
+              <span className="block sm:whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white pb-1">
                 Business growth is the goal
               </span>
             </Motion.h1>

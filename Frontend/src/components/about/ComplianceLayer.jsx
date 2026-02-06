@@ -18,7 +18,7 @@ const ComplianceLayer = () => {
            
            <div className="max-w-xl">
               <h2 className="text-3xl font-display font-bold text-white mb-6">
-                Security & <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">Compliance Layer</span>
+                Security & <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white pb-1">Compliance Layer</span>
               </h2>
               <p className="text-slate-400 text-lg leading-relaxed border-l-2 border-green-500/30 pl-6">
                  360 Kavach systems are structurally built to meet global enterprise and regulatory standards. We don't just advise on security; we embed it into the architecture.

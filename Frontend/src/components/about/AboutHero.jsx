@@ -47,7 +47,7 @@ const AboutHero = () => {
             </span>
           </motion.div>
 
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-8">
+          <h1 className="text-4xl md:text-5xl font-display font-bold text-white leading-snug mb-8">
             Engineering{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
               Secure, Scalable

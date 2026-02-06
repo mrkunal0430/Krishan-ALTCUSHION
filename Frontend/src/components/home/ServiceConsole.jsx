@@ -430,7 +430,7 @@ const ServiceConsole = () => {
     >
       {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/5 rounded-full blur-[120px]" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-500/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[120px]" />
       </div>
 
@@ -451,7 +451,7 @@ const ServiceConsole = () => {
 
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
             Service{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white pb-1">
               Console
             </span>
           </h2>
@@ -496,11 +496,13 @@ const ServiceConsole = () => {
                     {/* Top Bar: Icon & ID */}
                     <div className="flex justify-between items-start mb-6 border-b border-white/5 pb-5">
                       <div className="flex items-center space-x-4">
-                        <div className="p-3 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg shadow-lg shadow-orange-500/20">
-                          <activeService.icon
-                            className="text-white"
-                            size={24}
-                          />
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-300 p-0.5 shadow-lg shadow-primary-500/20">
+                          <div className="w-full h-full bg-navy-950 rounded-[10px] flex items-center justify-center">
+                            <activeService.icon
+                              className="text-white"
+                              size={24}
+                            />
+                          </div>
                         </div>
                         <div>
                           <h3 className="text-2xl font-bold text-white tracking-tight">
@@ -512,7 +514,7 @@ const ServiceConsole = () => {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-xs text-orange-500 font-mono mb-1">
+                        <div className="text-xs text-primary-500 font-mono mb-1">
                           SYS_STATUS
                         </div>
                         <div className="flex items-center space-x-2 text-green-400 text-xs font-mono">
@@ -544,7 +546,7 @@ const ServiceConsole = () => {
                             className="group relative bg-gradient-to-br from-navy-800/80 to-navy-900/80 border border-white/10 rounded-xl p-5 hover:border-primary-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10"
                           >
                             {/* Hover Effect */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
 
                             {/* Content */}
                             <div className="relative z-10">
@@ -602,7 +604,7 @@ const ServiceConsole = () => {
               key={service.id}
               className={`rounded-xl border overflow-hidden transition-all duration-300 ${
                 activeId === service.id
-                  ? "bg-navy-900 border-orange-500/50 ring-1 ring-orange-500/20"
+                  ? "bg-navy-900 border-primary-500/50 ring-1 ring-primary-500/20"
                   : "bg-navy-900/30 border-white/5"
               }`}
             >
@@ -615,13 +617,19 @@ const ServiceConsole = () => {
               >
                 <div className="flex items-center space-x-4">
                   <div
-                    className={`p-2 rounded-lg ${
+                    className={`w-10 h-10 rounded-xl ${
                       activeId === service.id
-                        ? "bg-orange-500 text-white"
-                        : "bg-white/5 text-slate-400"
+                        ? "bg-gradient-to-br from-primary-500 to-primary-300 p-0.5"
+                        : "bg-white/5 p-2"
                     }`}
                   >
-                    <service.icon size={20} />
+                    {activeId === service.id ? (
+                      <div className="w-full h-full bg-navy-950 rounded-[8px] flex items-center justify-center">
+                        <service.icon size={18} className="text-white" />
+                      </div>
+                    ) : (
+                      <service.icon size={20} className="text-slate-400" />
+                    )}
                   </div>
                   <div>
                     <h3
@@ -712,7 +720,7 @@ const ServiceConsole = () => {
                       {/* Action */}
                       <Link
                         to={`/services/${service.id}`}
-                        className="block w-full py-3 bg-white/5 hover:bg-orange-500 hover:text-white text-slate-300 rounded-lg font-bold text-sm transition-colors border border-white/10 hover:border-orange-500 text-center"
+                        className="block w-full py-3 bg-white/5 hover:bg-primary-500 hover:text-navy-950 text-slate-300 rounded-lg font-bold text-sm transition-colors border border-white/10 hover:border-primary-500 text-center"
                       >
                         Explore Details
                       </Link>
@@ -734,7 +742,7 @@ const ServiceModule = ({ service, isActive, onClick }) => {
       onClick={onClick}
       className={`group relative w-full text-left p-4 rounded-xl border transition-all duration-300 overflow-hidden ${
         isActive
-          ? "bg-navy-800 border-orange-500/50 shadow-[0_0_20px_rgba(249,115,22,0.1)]"
+          ? "bg-navy-800 border-primary-500/50 shadow-[0_0_20px_rgba(100,255,218,0.1)]"
           : "bg-navy-900/30 border-white/5 hover:bg-navy-800/50 hover:border-white/10"
       }`}
       whileHover={{ scale: 1.01 }}
@@ -743,7 +751,7 @@ const ServiceModule = ({ service, isActive, onClick }) => {
       {isActive && (
         <motion.div
           layoutId="active-glow"
-          className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-transparent"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -753,13 +761,19 @@ const ServiceModule = ({ service, isActive, onClick }) => {
       <div className="relative z-10 flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <div
-            className={`p-2 rounded-lg transition-colors ${
+            className={`w-10 h-10 rounded-xl transition-colors ${
               isActive
-                ? "bg-orange-500 text-white"
-                : "bg-white/5 text-slate-400 group-hover:text-white"
+                ? "bg-gradient-to-br from-primary-500 to-primary-300 p-0.5"
+                : "bg-white/5 p-2"
             }`}
           >
-            <service.icon size={20} />
+            {isActive ? (
+              <div className="w-full h-full bg-navy-950 rounded-[8px] flex items-center justify-center">
+                <service.icon size={18} className="text-white" />
+              </div>
+            ) : (
+              <service.icon size={20} className="text-slate-400 group-hover:text-white" />
+            )}
           </div>
           <div>
             <span
@@ -778,7 +792,7 @@ const ServiceModule = ({ service, isActive, onClick }) => {
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            className="w-2 h-2 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.8)]"
+            className="w-2 h-2 rounded-full bg-primary-500 shadow-[0_0_10px_rgba(100,255,218,0.8)]"
           />
         )}
       </div>
@@ -798,7 +812,7 @@ const VisualEngine = ({ type }) => {
               initial={{ opacity: 0.1 }}
               animate={{ opacity: [0.1, 0.5, 0.1] }}
               transition={{ duration: 2, delay: i * 0.05, repeat: Infinity }}
-              className="w-2 h-2 bg-orange-500 rounded-full"
+              className="w-2 h-2 bg-primary-500 rounded-full"
             />
           ))}
         </div>
@@ -808,7 +822,7 @@ const VisualEngine = ({ type }) => {
           {[0, 1, 2].map((i) => (
             <motion.div
               key={i}
-              className="absolute inset-0 border-2 border-orange-500/30 rounded-2xl bg-navy-900/80 backdrop-blur-sm"
+              className="absolute inset-0 border-2 border-primary-500/30 rounded-2xl bg-navy-900/80 backdrop-blur-sm"
               animate={{ y: [0, -10 * (i + 1), 0], x: [0, 5 * (i + 1), 0] }}
               transition={{ duration: 4, repeat: Infinity, delay: i * 0.5 }}
               style={{ zIndex: 3 - i, transform: `scale(${1 - i * 0.1})` }}
@@ -821,7 +835,7 @@ const VisualEngine = ({ type }) => {
           {[40, 70, 50, 90, 60, 100].map((h, i) => (
             <motion.div
               key={i}
-              className="w-4 bg-gradient-to-t from-orange-600 to-orange-400 rounded-t-sm"
+              className="w-4 bg-gradient-to-t from-primary-500 to-primary-300 rounded-t-sm"
               initial={{ height: 0 }}
               animate={{ height: `${h}%` }}
               transition={{ duration: 1, delay: i * 0.1, ease: "easeOut" }}
@@ -831,7 +845,7 @@ const VisualEngine = ({ type }) => {
       )}
       {(type === "palette" || type === "play") && (
         <motion.div
-          className="w-32 h-32 border-4 border-orange-500/50 rounded-full flex items-center justify-center relative"
+          className="w-32 h-32 border-4 border-primary-500/50 rounded-full flex items-center justify-center relative"
           animate={{ rotate: 360 }}
           transition={{ duration: 20, ease: "linear", repeat: Infinity }}
         >

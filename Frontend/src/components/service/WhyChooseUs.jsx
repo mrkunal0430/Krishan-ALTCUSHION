@@ -82,8 +82,10 @@ const ReasonCard = ({ reason, index }) => {
       <div className="absolute inset-0 bg-gradient-to-br from-primary-500/0 to-primary-500/0 group-hover:from-primary-500/5 group-hover:to-transparent rounded-xl md:rounded-2xl transition-all duration-500" />
 
       <div className="relative z-10">
-        <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-primary-500/10 flex items-center justify-center text-primary-500 mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300">
-          <reason.icon size={24} className="md:w-7 md:h-7" />
+        <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-primary-500 to-primary-300 p-0.5 mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300">
+          <div className="w-full h-full bg-navy-950 rounded-[10px] flex items-center justify-center">
+            <reason.icon size={24} className="text-white md:w-7 md:h-7" />
+          </div>
         </div>
 
         <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 group-hover:text-primary-400 transition-colors">

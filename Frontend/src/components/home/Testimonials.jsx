@@ -84,9 +84,9 @@ const Testimonials = () => {
       className="py-24 relative overflow-hidden"
     >
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row gap-16 items-center">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
           {/* Left Content */}
-          <div className="w-full md:w-1/3 space-y-8">
+          <div className="w-full md:w-1/3 space-y-6 sm:space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20">
               <UserCheck className="w-4 h-4 text-primary-500" />
               <span className="text-sm text-primary-400 font-medium">
@@ -94,7 +94,7 @@ const Testimonials = () => {
               </span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-tight">
               We don't just build software. <br />
               <span className="text-slate-500">We build legacies.</span>
             </h2>
@@ -130,7 +130,7 @@ const Testimonials = () => {
           </div>
 
           {/* Right Content: Vertical Wall of Love */}
-          <div className="w-full md:w-2/3 h-[600px] overflow-hidden relative mask-gradient-y">
+          <div className="w-full md:w-2/3 h-[400px] sm:h-[600px] overflow-hidden relative mask-gradient-y">
             {/* Gradient Masks for smooth top/bottom fade */}
             <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-navy-950 to-transparent z-20 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-navy-950 to-transparent z-20 pointer-events-none" />
@@ -211,7 +211,7 @@ const MarqueeColumn = ({ testimonials, speed, direction }) => {
 
 const Card = ({ data }) => {
   return (
-    <div className="p-6 rounded-xl bg-navy-900/60 border border-white/5 backdrop-blur-sm hover:border-orange-500/40 hover:bg-navy-800 transition-all duration-300 group cursor-default">
+    <div className="p-4 sm:p-6 rounded-xl bg-navy-900/60 border border-white/5 backdrop-blur-sm hover:border-primary-500/40 hover:bg-navy-800 transition-all duration-300 group cursor-default">
       <div className="flex justify-between items-start mb-4">
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 rounded-full overflow-hidden border border-white/10">
@@ -228,7 +228,7 @@ const Card = ({ data }) => {
             </p>
           </div>
         </div>
-        <Quote size={14} className="text-orange-500/50" />
+        <Quote size={14} className="text-primary-500/50" />
       </div>
 
       <p className="text-slate-300 text-sm leading-relaxed mb-3">
@@ -237,7 +237,7 @@ const Card = ({ data }) => {
 
       <div className="flex space-x-0.5 opacity-50 group-hover:opacity-100 transition-opacity">
         {[...Array(5)].map((_, i) => (
-          <Star key={i} size={10} className="fill-orange-400 text-orange-400" />
+          <Star key={i} size={10} className="fill-primary-400 text-primary-400" />
         ))}
       </div>
     </div>

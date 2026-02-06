@@ -71,9 +71,9 @@ const Newsletter = () => {
                 <span className="text-primary-400 text-sm font-medium">Stay Ahead of Threats</span>
               </motion.div>
 
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 leading-snug">
                 Subscribe to Our{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white">Newsletter</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white pb-1">Newsletter</span>
               </h2>
 
               <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">

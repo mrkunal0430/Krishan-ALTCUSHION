@@ -95,10 +95,10 @@ const ProcessEngine = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-display font-bold leading-tight"
+            className="text-4xl md:text-6xl font-display font-bold leading-snug"
           >
             <span className="block md:inline">How We</span>{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white block md:inline">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white block md:inline pb-1">
               Work
             </span>
           </Motion.h2>
@@ -123,7 +123,7 @@ const ProcessEngine = () => {
                           ? "56%"
                           : activeStep === 4
                             ? "82%"
-                            : "110%",
+                            : "11 0%",
                 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               />

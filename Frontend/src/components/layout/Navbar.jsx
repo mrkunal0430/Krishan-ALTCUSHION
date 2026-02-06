@@ -46,7 +46,7 @@ const Navbar = () => {
             />
           </div>
           <span className="text-xl font-display font-bold text-white tracking-tight">
-            360 <span className="text-blue-500">KAVACH</span>
+            360 <span className="text-primary-500">KAVACH</span>
           </span>
         </Link>
 

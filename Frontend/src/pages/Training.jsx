@@ -710,7 +710,7 @@ const Training = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-snug"
             >
               Master{" "}
               <span className="text-gradient-primary">Cybersecurity</span> with
