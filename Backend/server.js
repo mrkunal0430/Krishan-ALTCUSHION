@@ -11,9 +11,6 @@ import contactRoutes from "./routes/contact.js";
 import popupFormRoutes from "./routes/popupForm.js";
 import statsRoutes from "./routes/stats.js";
 
-// Import Admin model for initial setup
-import Admin from "./models/Admin.js";
-
 dotenv.config();
 
 const app = express();
@@ -49,37 +46,14 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", message: "360 Kavach API is running" });
 });
 
-// Create default admin if not exists
-const createDefaultAdmin = async () => {
-  try {
-    const adminExists = await Admin.findOne({
-      email: process.env.ADMIN_EMAIL || "admin@360kavach.com",
-    });
-    if (!adminExists) {
-      const admin = new Admin({
-        email: process.env.ADMIN_EMAIL || "admin@360kavach.com",
-        password: process.env.ADMIN_PASSWORD || "admin123",
-      });
-      await admin.save();
-      console.log("Default admin created successfully");
-      console.log("Email:", process.env.ADMIN_EMAIL || "admin@360kavach.com");
-      console.log("Password:", process.env.ADMIN_PASSWORD || "admin123");
-    }
-  } catch (error) {
-    console.error("Error creating default admin:", error.message);
-  }
-};
-
 // Connect to MongoDB and start server
 const PORT = process.env.PORT || 5000;
-const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost:27017/360kavach";
+const MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose
   .connect(MONGODB_URI)
-  .then(async () => {
+  .then(() => {
     console.log("Connected to MongoDB");
-    await createDefaultAdmin();
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
       console.log(`API available at http://localhost:${PORT}/api`);
