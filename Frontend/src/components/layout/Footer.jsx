@@ -9,6 +9,16 @@ import {
   MapPin,
 } from "lucide-react";
 
+const certifications = [
+  { src: "/Certification/27bf9d6176d34a24919425140d0ebd7c.webp", name: "ISO 27001" },
+  { src: "/Certification/8594946321f3433cb7e965667e5ec158.webp", name: "GDPR" },
+  { src: "/Certification/db37d22f21734e119feb9c1cb5e9f370.webp", name: "AICPA SOC" },
+  { src: "/Certification/3c76621558ac400eb245d8255a4a5743.webp", name: "HIPAA Compliant" },
+  { src: "/Certification/c81797c03e674a558f3fe3aeedd3e3b1.webp", name: "MAIT" },
+  { src: "/Certification/3f2604f93798486a95b63f6ee5749ad5.webp", name: "India Insurtech Association" },
+  { src: "/Certification/756965eaa6b94aa9b92237521e7bcd26.webp", name: "India Insurance Summit & Awards 2024" },
+];
+
 const Footer = () => {
   return (
     <footer className="bg-navy-950 border-t border-glass-border pt-20 pb-10 relative overflow-hidden">
@@ -19,17 +29,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
           <div>
-            <Link to="/" className="flex items-center space-x-3 mb-6 group">
-              <div className="w-15 h-15 overflow-hidden group-hover:border-blue-500 transition-colors">
-                <img
-                  src="/Logo/Logo.png"
-                  alt="360 Kavach Logo"
-                  className="w-full h-full object-cover animate-logo-spin"
-                />
-              </div>
-              <span className="text-2xl font-display font-bold text-white tracking-tight">
-                360 <span className="text-blue-500">KAVACH</span>
-              </span>
+            <Link to="/" className="inline-block mb-6 group">
+              <img
+                src="/Logo/Logo.png"
+                alt="360 Kavach Logo"
+                className="h-20 sm:h-24 w-auto object-contain brightness-110 group-hover:brightness-125 transition-all duration-300"
+              />
             </Link>
             <p className="text-slate-400 mb-6 leading-relaxed">
               Helping organizations stay secure, compliant, and competitive in
@@ -117,6 +122,28 @@ const Footer = () => {
                 </span>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* Certifications & Associations */}
+        <div className="border-t border-slate-800 pt-8 mb-10">
+          <p className="text-xs text-slate-500 text-center mb-6 uppercase tracking-widest font-medium">
+            Certifications & Associations
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-5 sm:gap-8">
+            {certifications.map((cert) => (
+              <div
+                key={cert.name}
+                className="bg-white/90 rounded-lg px-3 py-2 flex items-center justify-center hover:bg-white transition-colors duration-300 group"
+                title={cert.name}
+              >
+                <img
+                  src={cert.src}
+                  alt={cert.name}
+                  className="h-8 sm:h-10 w-auto object-contain opacity-85 group-hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+            ))}
           </div>
         </div>
 

@@ -10,11 +10,11 @@ import {
   Server,
   Bot,
   Database,
-  Eye,
   Sparkles,
   Zap,
   Globe,
   CheckCircle2,
+  Video,
 } from "lucide-react";
 
 const services = [
@@ -30,16 +30,17 @@ const services = [
     textColor: "text-white",
   },
   {
-    id: "managed-detection-response",
-    title: "Managed Detection & Response",
-    shortTitle: "MDR",
+    id: "creators",
+    title: "Creator & Influencer",
+    shortTitle: "Creators",
     description:
-      "24/7 SOC, incident response, digital forensics & threat hunting",
-    icon: Eye,
-    color: "from-rose-500 to-pink-600",
-    bgGlow: "bg-rose-500/20",
-    stats: "24/7 SOC Coverage",
+      "360° digital growth, brand protection & tech solutions for creators",
+    icon: Video,
+    color: "from-pink-500 to-fuchsia-600",
+    bgGlow: "bg-pink-500/20",
+    stats: "360° Creator Support",
     textColor: "text-white",
+    link: "/creators",
   },
   {
     id: "business-consulting",
@@ -267,7 +268,7 @@ const HeroCommandCenter = () => {
                     {/* CTA Buttons */}
                     <div className="flex gap-3 pt-1">
                       <Link
-                        to={`/services/${services[activeService].id}`}
+                        to={services[activeService].link || `/services/${services[activeService].id}`}
                         className={`group px-4 py-2 rounded-lg font-semibold text-sm text-white flex items-center gap-2 bg-gradient-to-r ${services[activeService].color} shadow-lg hover:shadow-xl transition-all`}
                       >
                         Explore

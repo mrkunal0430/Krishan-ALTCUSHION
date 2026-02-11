@@ -87,10 +87,10 @@ const services = servicesData.map((service) => ({
               "Never trust, always verify - comprehensive access control for every network request",
           },
           {
-            title: "Virtual Cisco",
+            title: "vCISO",
             icon: Network,
             description:
-              "Virtual Cisco provides a virtualized Cisco networking environment for testing and training without physical hardware.",
+              "vCISO provides a virtualized Cisco networking environment for testing and training without physical hardware.",
           },
           {
             title: "Incident Response Plan",

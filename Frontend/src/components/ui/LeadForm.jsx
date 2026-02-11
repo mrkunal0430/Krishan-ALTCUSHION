@@ -39,7 +39,7 @@ const WelcomeModal = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
   /*
    * WEB3FORMS + BACKEND API INTEGRATION
@@ -132,7 +132,9 @@ const WelcomeModal = () => {
                   <div className="mb-6">
                     <h2 className="text-3xl font-display font-bold mb-2">
                       Hello,{" "}
-                      <span className="text-gradient-primary">Visitor!</span>
+                      <span className="text-gradient-primary">
+                        Welcome to 360Kavach !
+                      </span>
                     </h2>
                     <p className="text-slate-400 text-sm">
                       Welcome to 360 Kavach. Let's discuss how we can engineer

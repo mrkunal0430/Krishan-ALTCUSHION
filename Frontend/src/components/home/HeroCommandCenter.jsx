@@ -108,6 +108,17 @@ const ServiceNode = React.memo(
           : "w-14 h-14 sm:w-16 sm:h-16";
     const iconSize = size === "small" ? 16 : size === "medium" ? 18 : 22;
 
+    // Position label on the outside of the circle based on node angle
+    const normalizedAngle = ((position.angle % 360) + 360) % 360;
+    const labelPosition =
+      normalizedAngle >= 315 || normalizedAngle < 45
+        ? "left-full ml-3 top-1/2 -translate-y-1/2"
+        : normalizedAngle >= 45 && normalizedAngle < 135
+          ? "top-full mt-3 left-1/2 -translate-x-1/2"
+          : normalizedAngle >= 135 && normalizedAngle < 225
+            ? "right-full mr-3 top-1/2 -translate-y-1/2"
+            : "bottom-full mb-3 left-1/2 -translate-x-1/2";
+
     return (
       <div
         className="absolute z-10"
@@ -157,7 +168,6 @@ const ServiceNode = React.memo(
                 animate={{ scale: 2, opacity: 0 }}
                 transition={{
                   duration: 1.5,
-                  repeat: Infinity,
                   ease: "easeOut",
                 }}
                 className="absolute inset-0 rounded-2xl"
@@ -166,15 +176,15 @@ const ServiceNode = React.memo(
             )}
           </Motion.div>
 
-          {/* Label tooltip */}
+          {/* Label tooltip - positioned outward from circle */}
           <AnimatePresence>
             {isActive && (
               <Motion.div
-                initial={{ opacity: 0, y: 8, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 4, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-full mt-2 left-1/2 -translate-x-1/2 z-30"
+                className={`absolute ${labelPosition} z-30`}
               >
                 <div
                   className="px-2 py-1 rounded-lg text-[10px] font-semibold whitespace-nowrap flex items-center gap-1"
@@ -498,14 +508,14 @@ const HeroCommandCenter = () => {
       <div className="absolute bottom-1/4 left-1/4 w-[200px] md:w-[300px] lg:w-[400px] h-[200px] md:h-[300px] lg:h-[400px] bg-blue-500/5 rounded-full blur-[60px] lg:blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-4 lg:gap-6 items-center">
           {/* Left: Content */}
-          <div className="space-y-4 sm:space-y-5 lg:space-y-8 text-center md:text-left order-2 md:order-1">
+          <div className="space-y-4 sm:space-y-5 lg:space-y-8 text-center lg:text-left order-2 lg:order-1">
             <Motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-500/10 border border-primary-500/20 rounded-full mx-auto md:mx-0"
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-500/10 border border-primary-500/20 rounded-full mx-auto lg:mx-0"
             >
               <Sparkles size={14} className="text-primary-400" />
               <span className="text-xs font-medium text-primary-400 tracking-wide uppercase">
@@ -517,13 +527,13 @@ const HeroCommandCenter = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-2xl sm:text-3xl md:text-2xl lg:text-4xl xl:text-5xl font-bold leading-snug text-white"
+              className="text-3xl sm:text-4xl md:text-[2.75rem] lg:text-[2.1rem] xl:text-[2.6rem] 2xl:text-[3.2rem] font-bold leading-snug text-white"
             >
-              <span className="block">
+              <span className="block md:whitespace-nowrap">
                 Technology is the tool
               </span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white pb-1">
-                Business growth it the ultimate goal
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-500 via-primary-300 to-white pb-1 md:whitespace-nowrap">
+                Business growth is the ultimate Goal
               </span>
             </Motion.h1>
 
@@ -531,13 +541,13 @@ const HeroCommandCenter = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
-              className="text-sm sm:text-base lg:text-lg text-slate-400 max-w-xl leading-relaxed mx-auto md:mx-0"
+              className="text-sm sm:text-base lg:text-lg text-slate-400 max-w-xl leading-relaxed mx-auto lg:mx-0"
             >
-              360 Kavach delivers end-to-end{" "}
-              <span className="text-white font-medium">cybersecurity</span>,{" "}
-              <span className="text-white font-medium">AI automation</span>, and{" "}
+              360Kavach delivers end-to-end{" "}
+              <span className="text-white font-medium">Cybersecurity</span>,{" "}
+              <span className="text-white font-medium">AI Automation</span>, and{" "}
               <span className="text-white font-medium">
-                digital transformation
+                Digital Transformation
               </span>{" "}
               solutions to accelerate your enterprise growth.
             </Motion.p>
@@ -546,7 +556,7 @@ const HeroCommandCenter = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
             >
               <Button
                 to="/contact"
@@ -567,7 +577,7 @@ const HeroCommandCenter = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative hidden lg:flex items-center justify-center h-[550px] order-1 md:order-2"
+            className="relative hidden xl:flex items-center justify-center h-[550px] order-1 lg:order-2"
           >
             <ServiceHub
               positions={desktopPositions}
@@ -617,7 +627,7 @@ const HeroCommandCenter = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative hidden md:flex lg:hidden items-center justify-center h-[360px] order-1 md:order-2"
+            className="relative hidden md:flex xl:hidden items-center justify-center h-[360px] lg:h-[450px] order-1 lg:order-2"
           >
             <ServiceHub
               positions={tabletPositions}

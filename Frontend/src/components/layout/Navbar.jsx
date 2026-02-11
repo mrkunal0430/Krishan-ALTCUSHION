@@ -24,6 +24,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
+    { name: "Creators & Influencer", path: "/creators", highlight: true },
     { name: "Training", path: "/training" },
     { name: "About", path: "/about" },
   ];
@@ -36,18 +37,14 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        {/* Logo */}
-        <Link to="/" className="flex items-center space-x-3 group">
-          <div className="w-15 h-15 overflow-hidden group-hover:border-blue-500 transition-colors">
-            <img
-              src="/Logo/Logo.png"
-              alt="360 Kavach Logo"
-              className="w-full h-full object-cover animate-logo-spin"
-            />
-          </div>
-          <span className="text-xl font-display font-bold text-white tracking-tight">
-            360 <span className="text-primary-500">KAVACH</span>
-          </span>
+        <Link to="/" className="shrink-0">
+          <img
+            src="/Logo/Logo.png"
+            alt="360 Kavach Logo"
+            className={`w-auto object-contain transition-all duration-300 ${
+              scrolled ? "h-8 sm:h-9" : "h-10 sm:h-11"
+            }`}
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -56,10 +53,14 @@ const Navbar = () => {
             <Link
               key={link.name}
               to={link.path}
-              className={`text-sm font-medium transition-colors hover:text-primary-500 ${
-                location.pathname === link.path
-                  ? "text-primary-500"
-                  : "text-slate-300"
+              className={`text-sm font-medium transition-all ${
+                link.highlight
+                  ? location.pathname === link.path
+                    ? "px-3 py-1 rounded-full bg-primary-500/20 border border-primary-500/40 text-primary-400"
+                    : "px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 hover:bg-primary-500/20 hover:border-primary-500/40"
+                  : location.pathname === link.path
+                    ? "text-primary-500 hover:text-primary-500"
+                    : "text-slate-300 hover:text-primary-500"
               }`}
             >
               {link.name}
@@ -97,13 +98,15 @@ const Navbar = () => {
                   key={link.name}
                   to={link.path}
                   className={`text-lg font-medium flex items-center justify-between ${
-                    location.pathname === link.path
-                      ? "text-primary-500"
-                      : "text-slate-300"
+                    link.highlight
+                      ? "px-4 py-2 rounded-lg bg-primary-500/10 border border-primary-500/20 text-primary-400"
+                      : location.pathname === link.path
+                        ? "text-primary-500"
+                        : "text-slate-300"
                   }`}
                 >
                   {link.name}
-                  <ChevronRight size={16} className="opacity-50" />
+                  <ChevronRight size={16} className={link.highlight ? "text-primary-400 opacity-70" : "opacity-50"} />
                 </Link>
               ))}
               <Link
