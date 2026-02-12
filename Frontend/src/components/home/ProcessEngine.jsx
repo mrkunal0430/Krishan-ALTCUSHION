@@ -69,7 +69,7 @@ const ProcessEngine = () => {
   return (
     <SectionWrapper
       background="transparent"
-      className="py-24 relative overflow-hidden"
+      className="relative overflow-hidden"
     >
       {/* Background Ambience - Optimized */}
       <div className="absolute inset-0 pointer-events-none">

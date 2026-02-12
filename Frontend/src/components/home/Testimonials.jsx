@@ -81,7 +81,7 @@ const Testimonials = () => {
   return (
     <SectionWrapper
       background="transparent"
-      className="py-24 relative overflow-hidden"
+      className="relative overflow-hidden"
     >
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center">

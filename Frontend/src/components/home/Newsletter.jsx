@@ -42,7 +42,7 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-14 md:py-20 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary-500/10 rounded-full blur-[120px]" />
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-600/5 rounded-full blur-[100px]" />

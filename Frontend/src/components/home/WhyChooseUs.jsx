@@ -115,7 +115,7 @@ const WhyChooseUs = () => {
   return (
     <SectionWrapper
       id="why-choose-us"
-      background="dark"
+      background=""
       className="relative overflow-hidden"
     >
       {/* Background Ambience */}

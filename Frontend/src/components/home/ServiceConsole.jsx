@@ -426,7 +426,7 @@ const ServiceConsole = () => {
   return (
     <SectionWrapper
       background="transparent"
-      className="py-24 relative overflow-hidden"
+      className="relative overflow-hidden"
     >
       {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none">

@@ -38,7 +38,7 @@ const GrowthEngine = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <SectionWrapper background="transparent" className="py-24">
+    <SectionWrapper background="transparent">
       <div className="container mx-auto px-6 text-center">
         
         <div className="mb-16">

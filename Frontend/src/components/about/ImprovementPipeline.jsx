@@ -15,7 +15,7 @@ const ImprovementPipeline = () => {
   return (
     <SectionWrapper
       background="dark"
-      className="py-16 md:py-24 relative overflow-hidden"
+      className="relative overflow-hidden"
     >
       {/* Background Pipeline Graph */}
       <div className="absolute inset-x-0 top-1/2 h-px bg-white/5 -translate-y-1/2 hidden md:block" />

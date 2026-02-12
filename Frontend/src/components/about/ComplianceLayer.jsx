@@ -12,7 +12,7 @@ const compliances = [
 
 const ComplianceLayer = () => {
   return (
-    <SectionWrapper background="transparent" className="py-24">
+    <SectionWrapper background="transparent">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
            

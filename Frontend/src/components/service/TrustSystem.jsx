@@ -35,7 +35,7 @@ const TrustSystem = () => {
   return (
     <SectionWrapper
       background="transparent"
-      className="py-16 md:py-24 relative overflow-hidden"
+      className="relative overflow-hidden"
     >
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">

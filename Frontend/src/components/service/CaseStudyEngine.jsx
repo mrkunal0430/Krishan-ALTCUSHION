@@ -62,7 +62,7 @@ const CaseStudyEngine = ({ selectedIndustry = "All" }) => {
       : caseStudies.filter((cs) => cs.industry === selectedIndustry);
 
   return (
-    <SectionWrapper background="transparent" className="py-16 md:py-24">
+    <SectionWrapper background="transparent">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-10 md:mb-12 gap-6">

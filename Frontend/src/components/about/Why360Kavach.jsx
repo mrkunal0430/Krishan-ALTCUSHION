@@ -32,7 +32,7 @@ const trustBlocks = [
 
 const Why360Kavach = () => {
   return (
-    <SectionWrapper background="dark" className="py-24 border-t border-white/5">
+    <SectionWrapper background="dark" className="border-t border-white/5">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-16">
           Why Enterprises{" "}

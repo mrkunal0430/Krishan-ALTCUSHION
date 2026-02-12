@@ -13,7 +13,7 @@ const SectionWrapper = ({
   };
 
   return (
-    <section id={id} className={`py-20 md:py-32 ${bgClasses[background]} ${className}`}>
+    <section id={id} className={`py-14 md:py-20 ${bgClasses[background]} ${className}`}>
       <div className="container mx-auto px-6">
         {children}
       </div>
