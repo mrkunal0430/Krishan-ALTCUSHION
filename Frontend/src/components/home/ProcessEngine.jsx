@@ -119,7 +119,7 @@ const ProcessEngine = () => {
                       ? "0%"
                       : activeStep === 2
                         ? "28%"
-                        : activeStep === 3
+                         : activeStep === 3
                           ? "56%"
                           : activeStep === 4
                             ? "82%"

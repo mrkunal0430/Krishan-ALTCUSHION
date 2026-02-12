@@ -208,11 +208,14 @@ const Contact = () => {
                         value={formData.service}
                         onChange={handleChange}
                         options={[
-                          "Cybersecurity Audit",
-                          "Web/App Development",
-                          "Zoho Efficiency",
-                          "AI Automation",
-                          "Corporate Training",
+                          "Cyber Security",
+                          "AI Agents & Automation",
+                          "Governance & Compliance",
+                          "Web & App Development",
+                          "Managed Detection & Response",
+                          "ERP Solutions",
+                          "IT Consulting",
+                          "Business Consulting & Training",
                           "Other",
                         ]}
                       />

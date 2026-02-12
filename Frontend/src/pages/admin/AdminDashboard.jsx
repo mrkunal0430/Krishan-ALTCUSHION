@@ -238,6 +238,7 @@ const ContactTab = ({ contacts, setContacts, authHeaders }) => {
               </div>
               <AnimatePresence>{selected?._id === c._id && (
                 <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="mt-4 pt-4 border-t border-white/5 space-y-2">
+                  {c.company && <p className="text-sm"><span className="text-slate-500">Company:</span> <span className="text-white">{c.company}</span></p>}
                   {c.service && <p className="text-sm"><span className="text-slate-500">Service:</span> <span className="text-white">{c.service}</span></p>}
                   {c.budget && <p className="text-sm"><span className="text-slate-500">Budget:</span> <span className="text-white">{c.budget}</span></p>}
                   <p className="text-sm"><span className="text-slate-500">Message:</span></p><p className="text-white whitespace-pre-wrap">{c.message}</p>

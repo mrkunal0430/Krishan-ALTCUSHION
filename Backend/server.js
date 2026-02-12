@@ -20,7 +20,6 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://capton-visa-point.vercel.app",
       "https://360kavach.vercel.app",
       "https://www.360kavach.com",
     ],

@@ -15,19 +15,36 @@ const WelcomeModal = () => {
 
   useEffect(() => {
     // Check if user has visited in this session
-    // ERROR FIX: If you want to force the modal to appear every time (for testing),
-    // comment out the 'hasVisited' check.
-    const hasVisited = sessionStorage.getItem("hasVisitedSession"); // Changed to sessionStorage for session-based tracking
+    const hasVisited = sessionStorage.getItem("hasVisitedSession");
 
-    // For testing: Remove '!hasVisited' to see it every time
     if (!hasVisited) {
-      // Show modal after a short delay for better UX
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 2000); // 2 seconds delay
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, []);
+
+  // Lock body scroll when modal is open (prevents mobile viewport resize & layout shift)
+  useEffect(() => {
+    if (isOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.overflow = "hidden";
+
+      return () => {
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        document.body.style.overflow = "";
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isOpen]);
 
   const handleClose = () => {
     setIsOpen(false);
@@ -105,14 +122,18 @@ const WelcomeModal = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          transition={{ duration: 0.25 }}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4"
+          style={{ touchAction: "none", overscrollBehavior: "contain" }}
+          onClick={handleClose}
         >
           <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            initial={{ scale: 0.95, opacity: 0, y: 12 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            transition={{ type: "spring", duration: 0.5 }}
-            className="bg-navy-900 border border-white/10 rounded-2xl w-full max-w-lg shadow-2xl relative overflow-hidden"
+            exit={{ scale: 0.95, opacity: 0, y: 12 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="bg-navy-900 border border-white/10 rounded-2xl w-full max-w-lg shadow-2xl relative overflow-hidden will-change-transform"
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Background Gradient Effect */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
